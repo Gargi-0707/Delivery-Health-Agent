@@ -1,0 +1,137 @@
+{
+  "name": "Weekly Delivery Health Report",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://unhappy-penalty-blade.ngrok-free.dev/health-report?include_ai_insights=true&agent_mode=true&agent_execute=true",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "={{$env.DELIVERY_HEALTH_API_KEY}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "http-request-report",
+      "name": "HTTP Request - Health Report",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const d = $json;\n\nconst risks = Array.isArray(d.risks) ? d.risks : [];\nconst recs = Array.isArray(d.recommendations) ? d.recommendations : [];\nconst actions = Array.isArray(d.agent?.action_queue) ? d.agent.action_queue : [];\nconst executed = Array.isArray(d.executed_actions) ? d.executed_actions : Array.isArray(d.agent?.execution?.executed_actions) ? d.agent.execution.executed_actions : [];\nconst memory = d.agent?.memory || {};\nconst learning = d.agent?.learning || {};\nconst trend = memory.trend || {};\nconst outcomeTracking = Array.isArray(d.agent?.tracking?.outcome_tracking) ? d.agent.tracking.outcome_tracking : [];\nconst outcomeCounts = d.agent?.tracking?.outcome_status_counts || {};\n\nconst lines = [];\nlines.push('Weekly Delivery Health Report');\nlines.push(`Generated (UTC): ${d.generated_at_utc || 'N/A'}`);\nlines.push(`Sprint Completion: ${d.sprint_completion_pct ?? 'N/A'}%`);\nlines.push('');\n\nlines.push('Risks detected:');\nif (!risks.length) lines.push('- None');\nfor (const r of risks.slice(0, 5)) lines.push(`- ${r}`);\n\nlines.push('');\nlines.push('Recommendations:');\nif (!recs.length) lines.push('- None');\nfor (const r of recs.slice(0, 3)) lines.push(`- ${r}`);\n\nlines.push('');\nlines.push('Agentic action queue (Top 3):');\nif (!actions.length) lines.push('- No agent actions generated');\nfor (const a of actions.slice(0, 3)) {\n  const pri = a.priority || 'P3';\n  const owner = a.owner || 'Unassigned';\n  const objective = a.objective || 'No objective provided';\n  lines.push(`- [${pri}] ${objective} (Owner: ${owner})`);\n}\n\nlines.push('');\nlines.push('Action tracking (Top 3):');\nif (!executed.length) lines.push('- No execution records');\nfor (const e of executed.slice(0, 3)) {\n  lines.push(`- ${e.action_id || 'unknown'}: ${e.status || 'unknown'} (${e.detail || 'no detail'})`);\n}\n\nlines.push('');\nlines.push('Outcome tracking (Last executed actions):');\nif (!outcomeTracking.length) lines.push('- No prior executed-action outcomes available yet');\nfor (const o of outcomeTracking.slice(0, 5)) {\n  lines.push(`- ${o.action_id || 'unknown'}: ${o.status || 'unknown'} -> ${o.evidence || 'no evidence'}`);\n}\n\nlines.push('');\nlines.push('Outcome summary:');\nlines.push(`- Resolved: ${outcomeCounts.resolved ?? 0}`);\nlines.push(`- Improving: ${outcomeCounts.improving ?? 0}`);\nlines.push(`- Pending observation: ${outcomeCounts.pending_observation ?? 0}`);\nlines.push(`- Unresolved: ${outcomeCounts.unresolved ?? 0}`);\nlines.push(`- Regressed: ${outcomeCounts.regressed ?? 0}`);\n\nlines.push('');\nlines.push('State memory:');\nlines.push(`- Last completion: ${trend.last_completion ?? 'N/A'}`);\nlines.push(`- Current completion: ${trend.current_completion ?? 'N/A'}`);\nlines.push(`- Completion delta: ${trend.completion_delta ?? 'N/A'}`);\nif (learning.performance_summary) lines.push(`- ${learning.performance_summary}`);\nif (Array.isArray(learning.resolved_problems) && learning.resolved_problems.length) {\n  lines.push('- Resolved problems:');\n  for (const item of learning.resolved_problems.slice(0, 5)) lines.push(`  - ${item}`);\n}\n\nlines.push('');\nlines.push('Execution summary:');\nlines.push(`- Executed: ${d.agent?.execution?.status_counts?.executed ?? 0}`);\nlines.push(`- Skipped: ${d.agent?.execution?.status_counts?.skipped ?? 0}`);\nlines.push(`- Failed: ${d.agent?.execution?.status_counts?.failed ?? 0}`);\nlines.push(`- Dry run: ${d.agent?.execution?.status_counts?.dry_run ?? 0}`);\n\nlines.push('');\nlines.push('Weekly Slack summary:');\nlines.push(d.weekly_slack_summary || 'No Slack summary available.');\n\nlines.push('');\nlines.push('CI/CD:');\nlines.push(`- Last Build: ${d.cicd?.last_build || 'unknown'}`);\nlines.push(`- UAT: ${d.cicd?.environments?.uat || 'unknown'}`);\nlines.push(`- PROD: ${d.cicd?.environments?.prod || 'unknown'}`);\n\nconst reportText = lines.join('\\n');\nconst subject = `Weekly Delivery Health - ${new Date().toISOString().slice(0, 10)}`;\n\nreturn [{\n  json: {\n    reportText,\n    subject\n  }\n}];"
+      },
+      "id": "code-format-report",
+      "name": "Code - Format Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        760,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "REPLACE_FROM_EMAIL@example.com",
+        "toEmail": "REPLACE_TEAM_EMAILS@example.com",
+        "subject": "={{$json.subject}}",
+        "text": "={{$json.reportText}}",
+        "options": {}
+      },
+      "id": "email-send",
+      "name": "Email - Team",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1020,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://chat.googleapis.com/v1/spaces/REPLACE/messages?key=REPLACE&token=REPLACE",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"text\": $json.reportText\n}",
+        "options": {}
+      },
+      "id": "google-chat-webhook",
+      "name": "Google Chat - Send",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1020,
+        380
+      ]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request - Health Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request - Health Report": {
+      "main": [
+        [
+          {
+            "node": "Code - Format Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code - Format Report": {
+      "main": [
+        [
+          {
+            "node": "Email - Team",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Google Chat - Send",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "versionId": "00000000-0000-0000-0000-000000000001",
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": []
+}
