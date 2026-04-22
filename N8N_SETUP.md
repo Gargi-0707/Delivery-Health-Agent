@@ -35,6 +35,15 @@ Use the generated HTTPS URL, for example:
 
 ## 3. n8n Nodes Configuration
 
+Recommended chart delivery approach:
+
+- Generate chart images in the Python report layer.
+- Return them as SVG data URIs in the `/health-report` JSON.
+- Build the email body as HTML and embed the images inline with `<img src="data:image/svg+xml;base64,...">`.
+- Keep plain text as a fallback for clients that strip HTML.
+
+This is usually better than trying to render charts inside the email node itself, because the report generator already owns the data and the email step only needs to format and send.
+
 ## Node A: Manual Trigger
 
 - Add `Manual Trigger`
@@ -111,6 +120,7 @@ return [{
 
 - Subject: `{{$json.subject}}`
 - Body: `{{$json.reportText}}`
+- HTML: `{{$json.reportHtml}}`
 - To: your team distribution list
 
 ## Node E: Google Chat (HTTP Request)

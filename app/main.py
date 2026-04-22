@@ -57,6 +57,7 @@ def get_health_report(
             "sprint_completion_pct": report.get("sprint_completion_pct"),
             "risks": report.get("signals", []),
             "recommendations": report.get("recommendations", []),
+            "charts": report.get("charts", {}),
             "weekly_slack_summary": report.get("slack", {}).get("week_summary", ""),
             "cicd": report.get("cicd", {}),
             "slack": report.get("slack", {}),
