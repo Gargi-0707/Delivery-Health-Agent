@@ -8,6 +8,8 @@ Delegates all work to the new modular package structure.
 
 import sys
 import argparse
+import json
+from datetime import datetime, timezone
 from reports.builder import generate_weekly_report
 from core.utils import safe_print
 from core.config import (
@@ -33,17 +35,25 @@ def main():
     args = parser.parse_args()
 
     try:
-        result = generate_weekly_report(
+        report_data = generate_weekly_report(
             include_ai_insights=args.ai,
             agent_mode=args.agent,
             agent_execute=args.execute
         )
 
-        if args.json:
-            import json
-            safe_print(json.dumps(result["report"], indent=2))
+        # Update the local JSON for the AI Bot and n8n
+        full_data = {
+            **report_data["report"],
+            "report_highlights": report_data.get("report_highlights", {}),
+            "generated_at_utc": datetime.now(timezone.utc).isoformat()
+        }
+        with open(LATEST_FULL_REPORT_FILE, "w", encoding="utf-8") as f:
+            json.dump(full_data, f, indent=2)
 
-        safe_print("\n" + result["insights"])
+        if args.json:
+            safe_print(json.dumps(report_data["report"], indent=2))
+
+        safe_print("\n" + report_data["insights"])
         
     except Exception as e:
         safe_print(f"\nCRITICAL ERROR: {str(e)}")

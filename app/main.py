@@ -74,6 +74,7 @@ def get_health_report(
             "agent": output.get("agent"),
             "intelligence": report.get("intelligence"),
             "executed_actions": report.get("executed_actions"),
+            "report_highlights": output.get("report_highlights"),
             "raw": report,
         }
 

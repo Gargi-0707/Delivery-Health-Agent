@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-29T02:57:44.516030+00:00",
+  "generated_at": "2026-04-29T06:21:23.887528+00:00",
   "sprint_completion_pct": 31.63,
   "overall_project_progress_pct": 20.24,
   "jira": {
@@ -15,33 +15,33 @@
         "id": "SHOP-43",
         "status": "Blocked",
         "assignee": "Unassigned",
-        "blocked_for_hours": 66.5,
+        "blocked_for_hours": 69.9,
         "over_4d_by_hours": 0.0,
-        "remaining_to_4d_hours": 29.5
+        "remaining_to_4d_hours": 26.1
       },
       {
         "id": "SHOP-30",
         "status": "Blocked",
         "assignee": "Unassigned",
-        "blocked_for_hours": 66.6,
+        "blocked_for_hours": 70.0,
         "over_4d_by_hours": 0.0,
-        "remaining_to_4d_hours": 29.4
+        "remaining_to_4d_hours": 26.0
       },
       {
         "id": "SHOP-16",
         "status": "Blocked",
         "assignee": "Gargi Gundawar",
-        "blocked_for_hours": 92.4,
+        "blocked_for_hours": 95.8,
         "over_4d_by_hours": 0.0,
-        "remaining_to_4d_hours": 3.6
+        "remaining_to_4d_hours": 0.2
       },
       {
         "id": "SHOP-9",
         "status": "Blocked",
         "assignee": "Unassigned",
-        "blocked_for_hours": 92.7,
-        "over_4d_by_hours": 0.0,
-        "remaining_to_4d_hours": 3.3
+        "blocked_for_hours": 96.1,
+        "over_4d_by_hours": 0.1,
+        "remaining_to_4d_hours": 0.0
       }
     ],
     "issue_count": 69,
@@ -77,7 +77,7 @@
       "Subtask": 1
     },
     "activity": {
-      "created_last_7d": 59,
+      "created_last_7d": 58,
       "updated_last_7d": 66,
       "open_items": 48
     },
@@ -1179,11 +1179,11 @@
     }
   },
   "signals": [
-    "4 stories blocked",
+    "1 stories blocked > 4 days",
     "2 PRs pending review > 48 hrs"
   ],
   "recommendations": [
-    "Run a blocker triage with dev + QA today and convert each blocker into a tracked action item.",
+    "Escalate blocked stories older than 4 days (SHOP-9) and assign owners for same-day unblock.",
     "Create a review SLA lane for PRs older than 48 hours and clear the queue before new feature pickup.",
     "Re-scope sprint backlog to must-have items only and freeze low-priority work for this sprint."
   ],
@@ -1220,6 +1220,7 @@
     "supported_range": ">=3.10 and <=3.14",
     "platform": "Windows-11-10.0.26200-SP0"
   },
+  "generated_at_utc": "29-Apr-2026 11:51 AM IST",
   "intelligence": {
     "velocity": {
       "average_velocity": 43.0,
@@ -1234,6 +1235,12 @@
     },
     "risks": [
       {
+        "risk_type": "blocked_over_4d",
+        "severity": "high",
+        "description": "1 stories blocked for over 4 days.",
+        "reduction_pct": 20
+      },
+      {
         "risk_type": "pending_review_over_48h",
         "severity": "medium",
         "description": "2 PRs pending review for over 48 hours.",
@@ -1247,42 +1254,50 @@
       }
     ],
     "adjusted_velocity": {
-      "adjusted_velocity": 25.3,
+      "adjusted_velocity": 21.5,
       "adjustment_reasons": [
-        "2 PRs pending review for over 48 hours. (Impact: -36.2%)",
-        "Slack escalation or delivery risk signals detected. (Impact: -5.0%)"
+        "1 stories blocked for over 4 days. (Impact: -44.2%)",
+        "2 PRs pending review for over 48 hours. (Impact: -37.1%)",
+        "Slack escalation or delivery risk signals detected. (Impact: -5.0%)",
+        "Combined risk reduction capped at 50%."
       ]
     },
     "forecast": {
-      "p50_sprints": 10.2,
-      "p85_sprints": 15.5,
-      "p50_weeks": 20.3,
-      "p85_weeks": 30.9,
+      "p50_sprints": 12.3,
+      "p85_sprints": 19.8,
+      "p50_weeks": 24.6,
+      "p85_weeks": 39.6,
       "confidence": "high",
       "method": "monte_carlo_1000_sims"
     },
     "plan": {
-      "recommended_sp": 20.2,
+      "recommended_sp": 17.2,
       "buffer_allocation": 0.2
     },
     "scenarios": {
       "optimistic": {
-        "sprints": 5.8,
-        "velocity": 45.1,
-        "narrative": "The team is on track to deliver the sprint goals with some buffer for unexpected tasks, and identified risks have minimal impact."
+        "sprints": 5.0,
+        "velocity": 51.6,
+        "narrative": "The team is expected to overcome identified risks with swift resolution, maintaining a high velocity."
       },
       "realistic": {
-        "sprints": 7.1,
-        "velocity": 36.5,
-        "narrative": "The team faces some challenges with pending reviews and Slack escalations, but velocity can still be maintained with focused effort."
+        "sprints": 6.7,
+        "velocity": 38.7,
+        "narrative": "Identified risks will impact the team's velocity, but mitigation efforts will minimize the effect, resulting in a moderate velocity reduction."
       },
       "pessimistic": {
-        "sprints": 9.3,
-        "velocity": 27.9,
-        "narrative": "Identified risks significantly hinder the team's velocity, and adjustments are needed to meet sprint goals."
+        "sprints": 10.1,
+        "velocity": 25.8,
+        "narrative": "The cumulative effect of multiple risks, including blocked stories and delayed reviews, significantly hampers the team's velocity."
       }
     },
     "recommendations": [
+      {
+        "description": "1 stories blocked for over 4 days.",
+        "recommended_action": "Escalate long-standing blockers to Senior Stakeholders.",
+        "action_id": "blocker-escalation-001",
+        "severity": "high"
+      },
       {
         "description": "2 PRs pending review for over 48 hours.",
         "recommended_action": "Enforce PR review SLAs via Slack bot.",
@@ -1814,7 +1829,7 @@
       "insight": "31 issue(s) are stuck in past sprints (not Done). Total carry-over risk: 161 SP. 4 blocked, 5 not started."
     },
     "delivery_risk_score": {
-      "score": 31.4,
+      "score": 26.4,
       "label": "Critical",
       "color": "red",
       "max_score": 100,
@@ -1836,11 +1851,11 @@
         },
         {
           "factor": "Active Risk Signals",
-          "deduction": 10,
-          "detail": "2 risk(s) detected"
+          "deduction": 15,
+          "detail": "3 risk(s) detected"
         }
       ],
-      "interpretation": "Delivery Risk Score: 31.4/100 (Critical). Key concerns: SP Completion Rate; Stale Issues; PR Quality / Review Delays."
+      "interpretation": "Delivery Risk Score: 26.4/100 (Critical). Key concerns: SP Completion Rate; Stale Issues; PR Quality / Review Delays."
     },
     "team_health_score": {
       "score": 38.9,
@@ -1871,13 +1886,13 @@
       "interpretation": "Team Health Score: 38.9/100 (Critical). SP Delivery: 15.0/40 | Code Quality: 16.4/25 | Issue Hygiene: 0/20 | Capacity: 7.5/15."
     },
     "executive_summary": {
-      "text": "## Weekly Delivery Executive Summary\n\n### Delivery Health: Critical (31.4/100) | Team Health: Critical (38.9/100)\n\n**Velocity & Forecast**\n- Avg SP assigned per sprint: 43 | Trend: INCREASING\n- Risk-adjusted velocity: 25.3 SP/sprint\n- Remaining scope: 260 SP\n- Forecast to completion: 10.2 sprints (realistic) / 15.5 sprints (conservative)\n\n**Sprint Delivery**\n- Avg SP completion rate across all sprints: 37.5%\n- Verdict: Team is at risk \u2014 SP completion below 70% on average.\n- Carry-over risk: 31 unresolved issues (161 SP) stuck in past sprints\n\n**Code Quality**\n- PR rework rate: 28.6% | PRs pending review >48h: 2\n- PR quality label: Medium\n\n**Next Sprint Plan**\n- Predicted sprint: Sprint 6 - MVP 7\n- Recommended capacity: 36.5 SP (5 issues)\n\n**Top Risk Factors**\n- SP Completion Rate: -20 pts \u2014 Avg 37.5% \u2014 Below target\n- Stale Issues: -20 pts \u2014 31 carry-over issues, 4 blocked\n- PR Quality / Review Delays: -18.6 pts \u2014 Rework rate 28.6%, 2 PRs pending >48h",
-      "delivery_risk_score": 31.4,
+      "text": "## \ud83d\udcca WEEKLY DELIVERY EXECUTIVE DASHBOARD\n\n### \ud83d\udee1\ufe0f HEALTH METRICS\n*   **Delivery Risk Score**: `26.4/100` \u2014 **Critical**\n*   **Team Health Score**: `38.9/100` \u2014 **Grade: Critical**\n\n### \ud83d\ude80 VELOCITY & FORECAST\n*   **Historical Velocity**: 43 SP/sprint (INCREASING trend)\n*   **Risk-Adjusted Velocity**: 21.5 SP/sprint\n*   **Remaining Backlog**: 260 SP\n*   **Completion Forecast**: **12.3 sprints** (Realistic) / **19.8 sprints** (Safe)\n\n### \ud83d\udcc5 SPRINT DELIVERY PERFORMANCE\n*   **Avg. SP Completion Rate**: 37.5%\n*   **Recent Verdict**: Team is at risk \u2014 SP completion below 70% on average.\n*   **Unresolved Carry-over**: 31 items (161 SP)\n\n### \ud83d\udd0d TOP RISK FACTORS\n- SP Completion Rate: -20 pts \u2014 Avg 37.5% \u2014 Below target\n- Stale Issues: -20 pts \u2014 31 carry-over issues, 4 blocked\n- PR Quality / Review Delays: -18.6 pts \u2014 Rework rate 28.6%, 2 PRs pending >48h",
+      "delivery_risk_score": 26.4,
       "delivery_risk_label": "Critical",
       "team_health_score": 38.9,
       "team_health_grade": "Critical",
-      "forecast_p50_sprints": 10.2,
-      "forecast_p85_sprints": 15.5,
+      "forecast_p50_sprints": 12.3,
+      "forecast_p85_sprints": 19.8,
       "next_sprint_name": "Sprint 6 - MVP 7",
       "generated_note": "Auto-generated executive summary \u2014 no LLM required."
     },
@@ -2255,12 +2270,12 @@
   },
   "executed_actions": [
     {
-      "action_id": "review-sla-001",
+      "action_id": "blocker-escalation-001",
       "status": "executed",
       "detail": "Alert sent (HTTP 200)."
     },
     {
-      "action_id": "blocker-triage-001",
+      "action_id": "review-sla-001",
       "status": "executed",
       "detail": "Alert sent (HTTP 200)."
     },

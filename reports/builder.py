@@ -8,7 +8,7 @@ Top-level report assembly:
 """
 
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 from core.config import GROQ_API_KEY, GROQ_MODEL, LATEST_FULL_REPORT_FILE
 from core.logging import log_event
@@ -121,6 +121,10 @@ def generate_weekly_report(
 
     observations = ObserveAgent.run()
     analysis = AnalyzerAgent.run(observations, include_ai_insights, runtime)
+    
+    # Calculate IST (UTC +5:30)
+    ist_now = datetime.now(timezone.utc) + timedelta(hours=5, minutes=30)
+    analysis["report"]["generated_at_utc"] = ist_now.strftime("%d-%b-%Y %I:%M %p IST")
 
     # High-level delivery intelligence
     memory_state = _load_memory_state()
@@ -179,8 +183,28 @@ def generate_weekly_report(
     except Exception as exc:
         log_event("error", "save_full_report_failed", error=str(exc))
 
+    # 4. Final Data Assembly for Gmail/n8n
+    report_highlights = {
+        "health_score": intelligence.get("delivery_risk_score", {}),
+        "team_health": intelligence.get("team_health_score", {}),
+        "velocity_and_forecast": {
+            "avg_velocity": intelligence.get("velocity", {}).get("average_velocity"),
+            "velocity_trend": intelligence.get("velocity", {}).get("trend"),
+            "adjusted_velocity": intelligence.get("adjusted_velocity", {}).get("adjusted_velocity"),
+            "remaining_sp": intelligence.get("backlog", {}).get("remaining_story_points"),
+            "p50_sprints": intelligence.get("forecast", {}).get("p50_sprints"),
+            "p85_sprints": intelligence.get("forecast", {}).get("p85_sprints"),
+        },
+        "sprint_delivery": {
+            "avg_completion_rate": intelligence.get("sprint_retrospectives", {}).get("avg_sp_completion_rate_pct"),
+            "verdict": intelligence.get("sprint_retrospectives", {}).get("summary"),
+            "carry_over_sp": intelligence.get("stale_issues", {}).get("total_stale_sp"),
+        }
+    }
+
     return {
         "report": analysis["report"],
         "insights": analysis["insights"],
         "agent": agent,
+        "report_highlights": report_highlights
     }

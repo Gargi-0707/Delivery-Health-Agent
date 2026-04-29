@@ -85,9 +85,28 @@ class LearnAgent:
             has_ai_coaching=ai_coaching is not None,
         )
 
+        # 5. Build Tracking Summary for n8n/Email
+        outcome_counts = {
+            "resolved": sum(1 for o in past_outcomes if o.get("status") == "resolved"),
+            "improving": sum(1 for o in past_outcomes if o.get("status") == "improving"),
+            "unresolved": sum(1 for o in past_outcomes if o.get("status") == "unresolved"),
+            "pending_observation": sum(1 for o in past_outcomes if o.get("status") == "pending"),
+            "regressed": sum(1 for o in past_outcomes if o.get("status") == "regressed"),
+        }
+
         return {
             "evaluated_past_outcomes": past_outcomes,
             "auto_escalations": auto_escalations,
-            "trend": trend,
-            "ai_coaching": ai_coaching,
+            "memory": {"trend": trend},
+            "learning": ai_coaching,
+            "execution": {
+                "status_counts": executions.get("status_counts", {}),
+                "executed_actions": executions.get("executed_actions", [])
+            },
+            "action_queue": action_queue,
+            "tracking": {
+                "outcome_tracking": past_outcomes,
+                "outcome_status_counts": outcome_counts,
+                "escalations_triggered": len(auto_escalations)
+            }
         }
