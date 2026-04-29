@@ -12,10 +12,12 @@ from urllib import error as urllib_error
 from urllib import request as urllib_request
 
 try:
-    from groq import Groq as _GroqClient
+    import httpx
+    from groq import Groq as _GroqClient, DefaultHttpxClient as _DefaultHttpxClient
     _GROQ_SDK_AVAILABLE = True
 except ImportError:
     _GroqClient = None
+    _DefaultHttpxClient = None
     _GROQ_SDK_AVAILABLE = False
 
 
@@ -58,7 +60,11 @@ def _call_groq_for_coaching(history_data: list, groq_api_key: str, groq_model: s
     system_prompt = _build_coaching_system_prompt()
 
     if _GROQ_SDK_AVAILABLE and _GroqClient:
-        client = _GroqClient(api_key=groq_api_key)
+        http_client = _DefaultHttpxClient(proxy=None)
+        client = _GroqClient(
+            api_key=groq_api_key,
+            http_client=http_client
+        )
         response = client.chat.completions.create(
             model=groq_model,
             messages=[

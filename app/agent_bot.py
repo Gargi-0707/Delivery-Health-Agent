@@ -3,7 +3,8 @@ import os
 import time
 import traceback
 import re
-from groq import Groq
+import httpx
+from groq import Groq, DefaultHttpxClient
 from sprint_analyzer import GROQ_API_KEY, GROQ_MODEL, GROQ_FALLBACK_MODEL, LATEST_FULL_REPORT_FILE
 from agentic_engine import _load_memory_state, _memory_file_path
 
@@ -277,7 +278,13 @@ def ask_delivery_bot(question: str, history=None):
     messages.extend(history[-4:])
     messages.append({"role": "user", "content": question})
 
-    client = Groq(api_key=api_key)
+    # Create a custom HTTP client that explicitly disables proxy detection to avoid keyword conflicts
+    http_client = DefaultHttpxClient(proxy=None)
+    
+    client = Groq(
+        api_key=api_key,
+        http_client=http_client
+    )
 
     # Model fallback chain: primary → fast → ultra-light
     models = [
