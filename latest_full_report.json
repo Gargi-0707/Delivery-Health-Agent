@@ -1,0 +1,2273 @@
+{
+  "generated_at": "2026-04-29T02:57:44.516030+00:00",
+  "sprint_completion_pct": 31.63,
+  "overall_project_progress_pct": 20.24,
+  "jira": {
+    "sprint_progress_pct": 31.63,
+    "overall_project_progress_pct": 20.24,
+    "overall_task_completion_pct": 24.64,
+    "sprint_task_completion_pct": 37.78,
+    "total_tasks": 69,
+    "completed": 17,
+    "blocked": 4,
+    "blocked_details": [
+      {
+        "id": "SHOP-43",
+        "status": "Blocked",
+        "assignee": "Unassigned",
+        "blocked_for_hours": 66.5,
+        "over_4d_by_hours": 0.0,
+        "remaining_to_4d_hours": 29.5
+      },
+      {
+        "id": "SHOP-30",
+        "status": "Blocked",
+        "assignee": "Unassigned",
+        "blocked_for_hours": 66.6,
+        "over_4d_by_hours": 0.0,
+        "remaining_to_4d_hours": 29.4
+      },
+      {
+        "id": "SHOP-16",
+        "status": "Blocked",
+        "assignee": "Gargi Gundawar",
+        "blocked_for_hours": 92.4,
+        "over_4d_by_hours": 0.0,
+        "remaining_to_4d_hours": 3.6
+      },
+      {
+        "id": "SHOP-9",
+        "status": "Blocked",
+        "assignee": "Unassigned",
+        "blocked_for_hours": 92.7,
+        "over_4d_by_hours": 0.0,
+        "remaining_to_4d_hours": 3.3
+      }
+    ],
+    "issue_count": 69,
+    "status_counts": {
+      "To Do": 27,
+      "peer accepted": 3,
+      "Peer review": 3,
+      "Ready for QA": 3,
+      "In Review": 3,
+      "Dev done": 3,
+      "Blocked": 4,
+      "In Progress": 4,
+      "QA in progess": 2,
+      "Dev in progress": 1,
+      "Done": 16
+    },
+    "canonical_status_counts": {
+      "To Do": 27,
+      "Open": 0,
+      "Dev In Progress": 5,
+      "QA In Progress": 5,
+      "Peer Review": 6,
+      "Peer Accepted": 3,
+      "Completed": 19,
+      "Blocked": 4
+    },
+    "type_counts": {
+      "Story": 31,
+      "Task": 22,
+      "Feature": 6,
+      "Bug": 6,
+      "Request": 3,
+      "Subtask": 1
+    },
+    "activity": {
+      "created_last_7d": 59,
+      "updated_last_7d": 66,
+      "open_items": 48
+    },
+    "issues": {
+      "Backlog": [
+        {
+          "id": "SHOP-70",
+          "title": "Session management & timeout handling",
+          "description": "Manage user sessions with proper timeout and automatic logout to enhance security and prevent unauthorized access.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 4.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-69",
+          "title": "Role-based access control (RBAC)",
+          "description": "Implement role-based access control to restrict system features based on user roles such as admin, user, and manager.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 6.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-68",
+          "title": "Notification preferences settings",
+          "description": "Allow users to customize notification preferences such as email, push notifications, and alerts.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 4.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-67",
+          "title": "Search & filter optimization",
+          "description": "Enhance product search and filtering functionality for faster and more accurate results.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 4.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-66",
+          "title": "API versioning",
+          "description": "Introduce API versioning to maintain backward compatibility and support future updates without breaking existing clients.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 4.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-65",
+          "title": "Feature flag system",
+          "description": "Implement feature flag system to enable or disable features dynamically without redeploying the application.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-64",
+          "title": "Audit logging system",
+          "description": "Implement audit logging to track important system actions such as login, payments, and data changes for security and debugging.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-63",
+          "title": "Multi-agent coordination system",
+          "description": "Develop coordination system for multiple agents to collaborate and share insights.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 8.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-62",
+          "title": "Agent memory optimization",
+          "description": "Optimize agent memory storage and retrieval for better performance and scalability.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-61",
+          "title": "Outcome evaluation engine",
+          "description": "Build system to evaluate outcomes of actions and measure effectiveness.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 8.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-60",
+          "title": "Action retry logic system",
+          "description": "Develop retry mechanism for failed actions to ensure reliability of operations.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-59",
+          "title": "Auto escalation engine",
+          "description": "Implement automated escalation system for unresolved issues based on defined conditions.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 8.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-58",
+          "title": "Fix notification delay bug",
+          "description": "Fix delay in notification delivery to ensure timely updates to users.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 3.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-57",
+          "title": "Resolve login edge cases",
+          "description": "Handle edge cases in login flow to prevent unexpected failures.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 3.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-56",
+          "title": "Fix API timeout issue",
+          "description": "Resolve API timeout issues to improve reliability and performance.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 4.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-55",
+          "title": "Fix UI responsiveness issues",
+          "description": "Fix UI responsiveness issues to ensure proper display across devices.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 3.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-54",
+          "title": "AI chatbot for team insights",
+          "description": "Develop AI chatbot to provide insights and recommendations based on project data.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 8.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-53",
+          "title": "Anomaly detection in delivery metrics",
+          "description": "Detect anomalies in delivery metrics to identify risks and performance issues.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-52",
+          "title": "Smart backlog prioritization (AI)",
+          "description": "Implement AI-driven prioritization of backlog items based on urgency and impact.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 8.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-51",
+          "title": "PR review time prediction model",
+          "description": "Build model to estimate PR review time using past review patterns and metrics.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-50",
+          "title": "AI-based sprint risk prediction",
+          "description": "Develop AI model to predict sprint risks based on historical and real-time data.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 8.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-4",
+          "title": "Subtask 2.1",
+          "description": "",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 0,
+          "blocked": false,
+          "has_pr": true,
+          "pr_state": "open"
+        },
+        {
+          "id": "SHOP-2",
+          "title": "Product listing page",
+          "description": "",
+          "status": "Done",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": true,
+          "pr_state": "closed"
+        },
+        {
+          "id": "SHOP-1",
+          "title": "User login & signup",
+          "description": "",
+          "status": "Done",
+          "assignee": "Unassigned",
+          "points": 3.0,
+          "blocked": false,
+          "has_pr": true,
+          "pr_state": "closed"
+        }
+      ],
+      "Sprint 5- MVP 6": [
+        {
+          "id": "SHOP-49",
+          "title": "Backup & recovery system",
+          "description": "Implement backup and recovery mechanisms to ensure data safety and system reliability.",
+          "status": "peer accepted",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-48",
+          "title": "Auto-deployment to cloud",
+          "description": "Enable automated deployment to cloud environment for faster and reliable releases.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-47",
+          "title": "Monitoring with logs (ELK/Grafana)",
+          "description": "Implement monitoring and logging system using ELK stack or Grafana for observability.",
+          "status": "Peer review",
+          "assignee": "Unassigned",
+          "points": 8.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-46",
+          "title": "Setup CI/CD pipeline improvement",
+          "description": "Enhance CI/CD pipeline to automate build, testing, and deployment workflows.",
+          "status": "Ready for QA",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-45",
+          "title": "Dockerize application",
+          "description": "Containerize the application using Docker for consistent deployment environments.",
+          "status": "In Review",
+          "assignee": "Unassigned",
+          "points": 4.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-44",
+          "title": "Prevent SQL injection & XSS",
+          "description": "Implement security measures to prevent SQL injection and cross-site scripting (XSS) attacks.",
+          "status": "Dev done",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-43",
+          "title": "Secure payment flow",
+          "description": "Enhance payment flow with secure handling, encryption, and validation to ensure safe transactions.",
+          "status": "Blocked",
+          "assignee": "Unassigned",
+          "points": 8.0,
+          "blocked": true,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-41",
+          "title": "Input validation & sanitization",
+          "description": "Validate and sanitize user inputs to prevent invalid data and security vulnerabilities.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 3.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-39",
+          "title": "Load testing for 1000+ users",
+          "description": "Conduct load testing to evaluate system performance under high user traffic (1000+ users) and identify bottlenecks.",
+          "status": "In Progress",
+          "assignee": "Unassigned",
+          "points": 8.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        }
+      ],
+      "Sprint 4- MVP 5": [
+        {
+          "id": "SHOP-42",
+          "title": "Rate limiting on APIs",
+          "description": "Implement rate limiting to control API usage and prevent abuse or overload.",
+          "status": "Ready for QA",
+          "assignee": "Unassigned",
+          "points": 4.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-40",
+          "title": "JWT authentication implementation",
+          "description": "Implement JWT-based authentication for secure user login and API access control.",
+          "status": "In Progress",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-38",
+          "title": "Optimize image loading",
+          "description": "Optimize image loading using techniques such as compression, resizing, and lazy loading to enhance performance.",
+          "status": "QA in progess",
+          "assignee": "Unassigned",
+          "points": 3.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-37",
+          "title": "Lazy loading for frontend",
+          "description": "Implement lazy loading for frontend components and assets to improve initial load time and overall performance.",
+          "status": "In Progress",
+          "assignee": "Unassigned",
+          "points": 3.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-36",
+          "title": "API response caching (Redis)",
+          "description": "Implement caching using Redis to store frequently accessed API responses and reduce server load and response time.",
+          "status": "Peer review",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-35",
+          "title": "Database query optimization",
+          "description": "Optimize database queries to improve performance by reducing execution time, minimizing redundant calls, and ensuring efficient indexing.",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-34",
+          "title": "Multi-language support",
+          "description": "Add multi-language support to the application to provide localized content and improve accessibility for users from different regions.",
+          "status": "Peer review",
+          "assignee": "Unassigned",
+          "points": 8.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-33",
+          "title": "Discount & coupon system",
+          "description": "Implement a discount and coupon system to allow users to apply promotional codes during checkout for price reductions.",
+          "status": "peer accepted",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-31",
+          "title": "Wishlist sharing feature",
+          "description": "Enable users to share their wishlist with others via link or social platforms to improve engagement and product visibility.",
+          "status": "Dev done",
+          "assignee": "Unassigned",
+          "points": 4.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-30",
+          "title": "User profile management",
+          "description": "Implement user profile management allowing users to view, update, and manage their personal information such as name, email, and preferences.",
+          "status": "Blocked",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": true,
+          "has_pr": false,
+          "pr_state": "none"
+        }
+      ],
+      "Sprint 3- MVP 4": [
+        {
+          "id": "SHOP-32",
+          "title": "Product reviews & ratings",
+          "description": "Allow users to add reviews and ratings for products to enhance trust and help other users make informed decisions.",
+          "status": "Dev done",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-29",
+          "title": "Voice assistant",
+          "description": "",
+          "status": "peer accepted",
+          "assignee": "Unassigned",
+          "points": 3.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-28",
+          "title": "AI alert system",
+          "description": "",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 8.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-27",
+          "title": "Prediction model",
+          "description": "",
+          "status": "QA in progess",
+          "assignee": "Unassigned",
+          "points": 4.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-26",
+          "title": "API optimization",
+          "description": "",
+          "status": "Ready for QA",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-25",
+          "title": "API optimization",
+          "description": "",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-24",
+          "title": "Order tracking",
+          "description": "",
+          "status": "In Review",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-23",
+          "title": "Build a recommendation engine that suggests products based on user browsing and purchase history.",
+          "description": "",
+          "status": "Dev in progress",
+          "assignee": "Unassigned",
+          "points": 8.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-21",
+          "title": "[AUTO-ESCALATION] scope-control-001 unresolved after 24h",
+          "description": "Run: agent-20260421-175945\nOriginal action: scope-control-001\nAge hours: 28.4\nEvidence: Sprint completion changed from 20 to 15.79.\nEscalation objective: Escalate unresolved outcome for scope-control-001",
+          "status": "In Progress",
+          "assignee": "Unassigned",
+          "points": 6.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        }
+      ],
+      "Sprint 1 - MVP 2": [
+        {
+          "id": "SHOP-22",
+          "title": "Fix the Bugs",
+          "description": "",
+          "status": "Done",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-15",
+          "title": "Add notifications",
+          "description": "Currently, users do not receive any feedback or alerts for important actions such as successful operations, errors, or system events. This leads to poor user experience and lack of clarity during interactions.\n\nThe notifications system will provide real-time feedback to users through UI messages (e.g., success, error, info notifications). This will improve usability and help users understand the outcome of their actions.\n\nThis task involves implementing a notification component on the frontend, supporting different types of messages, and ensuring proper handling of user interactions and system responses.\n\nAcceptance Criteria:\n\n* User receives notification on key actions (e.g., add to cart, payment success/failure)\n* Notifications support different types (success, error, info)\n* Notifications automatically disappear after a few seconds\n* Multiple notifications can be handled without UI issues\n* Proper error messages are displayed for failed operations\n* UI should be clean and non-intrusive\n\nPriority: Medium\nType: Task",
+          "status": "Done",
+          "assignee": "Unassigned",
+          "points": 4.0,
+          "blocked": false,
+          "has_pr": true,
+          "pr_state": "closed"
+        },
+        {
+          "id": "SHOP-14",
+          "title": "Add wishlist feature",
+          "description": "",
+          "status": "Done",
+          "assignee": "Gargi Gundawar",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": true,
+          "pr_state": "closed"
+        },
+        {
+          "id": "SHOP-10",
+          "title": "Performance testing",
+          "description": "Perform performance testing to analyze system behaviour under load and identify bottlenecks for optimization.",
+          "status": "Done",
+          "assignee": "Unassigned",
+          "points": 3.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-7",
+          "title": "Fix checkout crash",
+          "description": "\nUsers are experiencing a crash during the checkout process when attempting to complete a purchase. This issue is impacting the user experience and blocking successful transactions.\n\nThe root cause appears to be related to improper handling of edge cases in the payment or cart validation logic. The system does not gracefully handle invalid or missing input, leading to application failure.\n\nThis task involves identifying the exact cause of the crash, implementing proper error handling, and ensuring the checkout flow works reliably under all valid and invalid scenarios.\n\nAcceptance Criteria:\n\n* Checkout process should not crash under any condition\n* Proper error handling must be implemented for invalid inputs\n* Users should see a meaningful error message instead of application failure\n* Payment flow should complete successfully for valid inputs\n* Unit tests should be added to cover edge cases\n\nPriority: High\nType: Bug",
+          "status": "Done",
+          "assignee": "Gargi Gundawar",
+          "points": 2.0,
+          "blocked": false,
+          "has_pr": true,
+          "pr_state": "closed"
+        },
+        {
+          "id": "SHOP-6",
+          "title": "Add to cart",
+          "description": "",
+          "status": "Done",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-5",
+          "title": "Order email",
+          "description": "",
+          "status": "Done",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-3",
+          "title": "Task 3",
+          "description": "",
+          "status": "Done",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": true,
+          "pr_state": "open"
+        }
+      ],
+      "Sprint 2- MVP 3": [
+        {
+          "id": "SHOP-20",
+          "title": "Implement order history",
+          "description": "Allow users to view and track their past orders within the application.",
+          "status": "Done",
+          "assignee": "Unassigned",
+          "points": 3.0,
+          "blocked": false,
+          "has_pr": true,
+          "pr_state": "closed"
+        },
+        {
+          "id": "SHOP-19",
+          "title": "Add payment retry logic",
+          "description": "Implement retry mechanism for failed payments to improve transaction success rate.",
+          "status": "Done",
+          "assignee": "Unassigned",
+          "points": 3.0,
+          "blocked": false,
+          "has_pr": true,
+          "pr_state": "closed"
+        },
+        {
+          "id": "SHOP-18",
+          "title": "Improve error handling",
+          "description": "Enhance error handling to ensure proper validation and meaningful error responses.",
+          "status": "Done",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": true,
+          "pr_state": "closed"
+        },
+        {
+          "id": "SHOP-17",
+          "title": "Add admin dashboard",
+          "description": "Develop admin dashboard to manage and monitor application data and operations.",
+          "status": "Done",
+          "assignee": "Unassigned",
+          "points": 3.0,
+          "blocked": false,
+          "has_pr": true,
+          "pr_state": "closed"
+        },
+        {
+          "id": "SHOP-16",
+          "title": "Add chatbot",
+          "description": "Implement chatbot feature to assist users with queries and interactions.",
+          "status": "Blocked",
+          "assignee": "Gargi Gundawar",
+          "points": 5.0,
+          "blocked": true,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-13",
+          "title": "remove error",
+          "description": "Fix existing errors to ensure stable and smooth application behavior.",
+          "status": "Done",
+          "assignee": "Unassigned",
+          "points": 3.0,
+          "blocked": false,
+          "has_pr": true,
+          "pr_state": "closed"
+        },
+        {
+          "id": "SHOP-12",
+          "title": "fix blocks",
+          "description": "Resolve identified blockers preventing progress in development or deployment.",
+          "status": "In Review",
+          "assignee": "Unassigned",
+          "points": 4.0,
+          "blocked": false,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-9",
+          "title": "Deploy to staging",
+          "description": "Set up and deploy the application to the staging environment for testing and validation before production release.",
+          "status": "Blocked",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": true,
+          "has_pr": false,
+          "pr_state": "none"
+        },
+        {
+          "id": "SHOP-8",
+          "title": "API tests",
+          "description": "Write and execute test cases for backend APIs to ensure correctness, reliability, and proper error handling.",
+          "status": "Done",
+          "assignee": "Unassigned",
+          "points": 3.0,
+          "blocked": false,
+          "has_pr": true,
+          "pr_state": "closed"
+        }
+      ]
+    },
+    "sprint_metrics": {
+      "Backlog": {
+        "total": 24,
+        "completed": 2,
+        "blocked": 0,
+        "points_total": 121.0,
+        "points_done": 8.0
+      },
+      "Sprint 5- MVP 6": {
+        "total": 9,
+        "completed": 1,
+        "blocked": 1,
+        "points_total": 51.0,
+        "points_done": 5.0
+      },
+      "Sprint 4- MVP 5": {
+        "total": 10,
+        "completed": 1,
+        "blocked": 1,
+        "points_total": 47.0,
+        "points_done": 4.0
+      },
+      "Sprint 3- MVP 4": {
+        "total": 9,
+        "completed": 1,
+        "blocked": 0,
+        "points_total": 49.0,
+        "points_done": 5.0
+      },
+      "Sprint 1 - MVP 2": {
+        "total": 8,
+        "completed": 8,
+        "blocked": 0,
+        "points_total": 34.0,
+        "points_done": 34.0
+      },
+      "Sprint 2- MVP 3": {
+        "total": 9,
+        "completed": 6,
+        "blocked": 2,
+        "points_total": 34.0,
+        "points_done": 20.0
+      }
+    }
+  },
+  "github": {
+    "total_prs": 14,
+    "pending_reviews": 2,
+    "review_comments": 21,
+    "pending_review_over_48h": 2,
+    "test_coverage_pct": null,
+    "prs": [
+      {
+        "shop_id": "SHOP-8",
+        "branch": "feature/SHOP-8-api-tests",
+        "status": "merged (review done)",
+        "merged": true,
+        "iterations": 0,
+        "comments_text": [],
+        "description": "Added test cases to validate health endpoint functionality and response structure."
+      },
+      {
+        "shop_id": "SHOP-20",
+        "branch": "feature/SHOP-20-order-history",
+        "status": "merged (review done)",
+        "merged": true,
+        "iterations": 1,
+        "comments_text": [
+          "General: Looks good \u2705"
+        ],
+        "description": ""
+      },
+      {
+        "shop_id": "SHOP-19",
+        "branch": "feature/SHOP-19-payment-retry",
+        "status": "merged (review done)",
+        "merged": true,
+        "iterations": 1,
+        "comments_text": [
+          "General: 1. No retry logic implemented\r\n2. No retry limit\r\n3. No delay between retries"
+        ],
+        "description": ""
+      },
+      {
+        "shop_id": "SHOP-13",
+        "branch": "bugfix/SHOP-13-remove-error",
+        "status": "merged (review done)",
+        "merged": true,
+        "iterations": 1,
+        "comments_text": [
+          "General: Looks good \u2705"
+        ],
+        "description": "Handled division by zero using HTTPException to prevent crashes."
+      },
+      {
+        "shop_id": "SHOP-17",
+        "branch": "feature/SHOP-17-admin-dashboard",
+        "status": "merged (review done)",
+        "merged": true,
+        "iterations": 3,
+        "comments_text": [
+          "General: No styling\r\nNo data",
+          "General: Bad UI, no formatting",
+          "General: Bad UI, no formatting\r\nplease do correct it !!"
+        ],
+        "description": ""
+      },
+      {
+        "shop_id": "SHOP-18",
+        "branch": "feature/SHOP-18-error-handling",
+        "status": "merged (review done)",
+        "merged": true,
+        "iterations": 2,
+        "comments_text": [
+          "General: No validation for id\r\nNo error handling",
+          "General: error handling now done properly . "
+        ],
+        "description": ""
+      },
+      {
+        "shop_id": "SHOP-15",
+        "branch": "feature/SHOP-15-notifications",
+        "status": "merged (review done)",
+        "merged": true,
+        "iterations": 5,
+        "comments_text": [
+          "General: 1. Notification is only console log, no UI\r\n2. No error handling\r\n3. Function name is generic",
+          "General: 1. Avoid alert(), use proper UI component\r\n2. Add auto-dismiss feature\r\n3. Add different types (success, error)",
+          "General: 1. Add CSS styling\r\n2. Handle multiple notifications\r\n3. Add test case",
+          "General: I will fix it and push the code again \r\n",
+          "General: Done!!\r\nCheck Once\r\n"
+        ],
+        "description": ""
+      },
+      {
+        "shop_id": "SHOP-7",
+        "branch": "bugfix/SHOP-7-checkout",
+        "status": "merged (review done)",
+        "merged": true,
+        "iterations": 5,
+        "comments_text": [
+          "General: 1. No error handling for invalid amount\r\n2. Missing return when amount <= 0\r\n3. No logging",
+          "General: okay i will fix it \r\n",
+          "General: 1. Use exception instead of return string\r\n2. Add logging for failures\r\n3. Function name unclear",
+          "General: 1. Add docstring\r\n2. Add unit test",
+          "General: done with final code just check it \r\n"
+        ],
+        "description": ""
+      },
+      {
+        "shop_id": "SHOP-14",
+        "branch": "feature/SHOP-14-wishlist",
+        "status": "merged (review done)",
+        "merged": true,
+        "iterations": 3,
+        "comments_text": [
+          "General: 1. No error handling\r\n2. Function name not clear\r\n3. Missing API integration",
+          "General: 1. Still no backend API call\r\n2. Need async handling",
+          "General: 1. Add loading state\r\n2. Improve error message"
+        ],
+        "description": ""
+      },
+      {
+        "shop_id": "SHOP-2",
+        "branch": "feature/SHOP-2-product",
+        "status": "merged (review done)",
+        "merged": true,
+        "iterations": 0,
+        "comments_text": [],
+        "description": "Added product listing"
+      },
+      {
+        "shop_id": "SHOP-1",
+        "branch": "feature/SHOP-1-auth",
+        "status": "merged (review done)",
+        "merged": true,
+        "iterations": 0,
+        "comments_text": [],
+        "description": "Added auth feature"
+      },
+      {
+        "shop_id": "SHOP-7",
+        "branch": "bugfix/SHOP-7-checkout",
+        "status": "merged (review done)",
+        "merged": true,
+        "iterations": 0,
+        "comments_text": [],
+        "description": "Fixed checkout crash"
+      },
+      {
+        "shop_id": "SHOP-4",
+        "branch": "feature/SHOP-4-payment",
+        "status": "pending review",
+        "merged": false,
+        "iterations": 0,
+        "comments_text": [],
+        "description": "Added payment integration"
+      },
+      {
+        "shop_id": "SHOP-3",
+        "branch": "feature/SHOP-3-cart",
+        "status": "pending review",
+        "merged": false,
+        "iterations": 0,
+        "comments_text": [],
+        "description": "Implemented cart feature logic."
+      }
+    ]
+  },
+  "cicd": {
+    "build_failures": 0,
+    "last_build": "success",
+    "environments": {
+      "uat": "success",
+      "prod": "success"
+    }
+  },
+  "slack": {
+    "enabled": true,
+    "source": "slack_api",
+    "message_count": 247,
+    "matched_message_count": 36,
+    "channels_requested": [
+      "C0AU26WGCHJ"
+    ],
+    "channels_failed": 0,
+    "category_counts": {
+      "delivery_risks": 25,
+      "issues": 29,
+      "successes": 4
+    },
+    "top_keywords": [
+      [
+        "blocked",
+        40
+      ],
+      [
+        "missing",
+        5
+      ],
+      [
+        "incident",
+        4
+      ],
+      [
+        "build failed",
+        2
+      ],
+      [
+        "deployment failed",
+        2
+      ]
+    ],
+    "issue_highlights": [
+      "[Delivery Health Agent] Hi @ReleaseManager, this is a P0 alert for a PROD deployment risk. The current sprint is only 35.71% complete with 2 blocked tasks and 2 pending reviews over 48h, indicating potential delays. Please assess and intervene to mitigate risks.",
+      "[Delivery Health Agent] Hi @Engineering_Manager, this is a high-priority alert. Our current sprint completion is only 35.71% and we have 2 blocked tasks. We need your immediate attention to assess and mitigate potential delivery risks."
+    ],
+    "success_highlights": [
+      "[Delivery Health Agent] Hi @Scrum Master, with only 35.71% completion and 2 stories pending review for over 48h, we're at risk of not meeting sprint goals. I recommend re-prioritizing the backlog and deferring non-critical scope to ensure must-have stories are completed.",
+      "and i jira strory is successfully done"
+    ],
+    "risk_highlights": [
+      "[Delivery Health Agent] Hi Engineering Manager, with a sprint completion of only 35.71% and 2 PRs pending review for over 48 hours, we're at risk of missing our delivery targets. I recommend a 2-hour focused review session to clear the PR backlog and get our delivery back on track.",
+      "[Delivery Health Agent] Hi @ReleaseManager, this is a P0 alert for a PROD deployment risk. The current sprint is only 35.71% complete with 2 blocked tasks and 2 pending reviews over 48h, indicating potential delays. Please assess and intervene to mitigate risks."
+    ],
+    "week_summary": "Reviewed 247 Slack messages for the week. Detected 29 issue-related mentions, 4 success mentions, and 25 delivery-risk mentions. Main issue signals: [Delivery Health Agent] Hi @ReleaseManager, this is a P0 alert for a PROD deployment risk. The current sprint is only 35.71% complete with 2 blocked tasks and 2 pending reviews over 48h, indicating potential delays. Please assess and intervene to mitigate risks. | [Delivery Health Agent] Hi @Engineering_Manager, this is a high-priority alert. Our current sprint completion is only 35.71% and we have 2 blocked tasks. We need your immediate attention to assess and mitigate potential delivery risks. | [Delivery Health Agent] Hi @Scrum Master, UAT deployment status is currently unknown and requires validation to ensure release confidence. Please validate deployment health and unblock release ASAP as completion is only 35.71% and there are 2 blocked tasks. Notable wins: [Delivery Health Agent] Hi @Scrum Master, with only 35.71% completion and 2 stories pending review for over 48h, we're at risk of not meeting sprint goals. I recommend re-prioritizing the backlog and deferring non-critical scope to ensure must-have stories are completed. | and i jira strory is successfully done | The blocked story part is now solved and all the errors related to that part is resolved and all bloced states are clear in the jira sprint part Delivery risks: [Delivery Health Agent] Hi Engineering Manager, with a sprint completion of only 35.71% and 2 PRs pending review for over 48 hours, we're at risk of missing our delivery targets. I recommend a 2-hour focused review session to clear the PR backlog and get our delivery back on track. | [Delivery Health Agent] Hi @ReleaseManager, this is a P0 alert for a PROD deployment risk. The current sprint is only 35.71% complete with 2 blocked tasks and 2 pending reviews over 48h, indicating potential delays. Please assess and intervene to mitigate risks. | [Delivery Health Agent] Hi Engineering Manager, with a sprint completion of only 35.71% and 2 PRs pending review for over 48 hours, we're at risk of missing sprint goals. Can we review and prioritize the PR backlog within the next 2 hours to get delivery back on track?",
+    "grouped_summary": {
+      "by_channel": [
+        {
+          "channel": "C0AU26WGCHJ",
+          "matched_messages": 36,
+          "category_counts": {
+            "delivery_risks": 25,
+            "issues": 28,
+            "successes": 4
+          }
+        }
+      ],
+      "by_date": [
+        {
+          "date": "2026-04-24",
+          "matched_messages": 15,
+          "category_counts": {
+            "delivery_risks": 11,
+            "issues": 10,
+            "successes": 1
+          }
+        },
+        {
+          "date": "2026-04-23",
+          "matched_messages": 10,
+          "category_counts": {
+            "delivery_risks": 10,
+            "issues": 10
+          }
+        },
+        {
+          "date": "2026-04-22",
+          "matched_messages": 1,
+          "category_counts": {
+            "delivery_risks": 1
+          }
+        },
+        {
+          "date": "2026-04-21",
+          "matched_messages": 4,
+          "category_counts": {
+            "successes": 2,
+            "delivery_risks": 2,
+            "issues": 3
+          }
+        },
+        {
+          "date": "2026-04-20",
+          "matched_messages": 6,
+          "category_counts": {
+            "successes": 1,
+            "issues": 5,
+            "delivery_risks": 1
+          }
+        }
+      ]
+    }
+  },
+  "signals": [
+    "4 stories blocked",
+    "2 PRs pending review > 48 hrs"
+  ],
+  "recommendations": [
+    "Run a blocker triage with dev + QA today and convert each blocker into a tracked action item.",
+    "Create a review SLA lane for PRs older than 48 hours and clear the queue before new feature pickup.",
+    "Re-scope sprint backlog to must-have items only and freeze low-priority work for this sprint."
+  ],
+  "charts": {
+    "pie": {
+      "title": "Jira Status Overview",
+      "data_uri": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3MjAiIGhlaWdodD0iMzgwIiB2aWV3Qm94PSIwIDAgNzIwIDM4MCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcng9IjIwIiBmaWxsPSIjMGYxNzIwIi8+PHRleHQgeD0iMzIiIHk9IjQ2IiBmaWxsPSIjZTdmMmY3IiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iNzAwIj5KaXJhIFN0YXR1cyBPdmVydmlldzwvdGV4dD48dGV4dCB4PSIzMiIgeT0iODIiIGZpbGw9IiM5MmE3YjIiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiPlRvdGFsIGl0ZW1zOiA2OTwvdGV4dD48cGF0aCBkPSJNIDE3MC4wMCA3MC4wMCBBIDEyMCAxMjAgMCAwIDEgMjQ1LjczIDI4My4wOSBMIDIxNS40NCAyNDUuODUgQSA3MiA3MiAwIDAgMCAxNzAuMDAgMTE4LjAwIFoiIGZpbGw9IiMyZWM0YjYiIHN0cm9rZT0iIzBmMTcyMCIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTSAyNDUuNzMgMjgzLjA5IEEgMTIwIDEyMCAwIDAgMSA2Ni4wOCAyNTAuMDAgTCAxMDcuNjUgMjI2LjAwIEEgNzIgNzIgMCAwIDAgMjE1LjQ0IDI0NS44NSBaIiBmaWxsPSIjM2E4NmZmIiBzdHJva2U9IiMwZjE3MjAiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik0gNjYuMDggMjUwLjAwIEEgMTIwIDEyMCAwIDAgMSA1MC4wMyAxODcuMjcgTCA5OC4wMiAxODguMzYgQSA3MiA3MiAwIDAgMCAxMDcuNjUgMjI2LjAwIFoiIGZpbGw9IiNmZjlmMWMiIHN0cm9rZT0iIzBmMTcyMCIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTSA1MC4wMyAxODcuMjcgQSAxMjAgMTIwIDAgMCAxIDYzLjQ1IDEzNC43OSBMIDEwNi4wNyAxNTYuODggQSA3MiA3MiAwIDAgMCA5OC4wMiAxODguMzYgWiIgZmlsbD0iI2ZmNmI2YiIgc3Ryb2tlPSIjMGYxNzIwIiBzdHJva2Utd2lkdGg9IjIiLz48cGF0aCBkPSJNIDYzLjQ1IDEzNC43OSBBIDEyMCAxMjAgMCAwIDEgOTguNTggOTMuNTYgTCAxMjcuMTUgMTMyLjE0IEEgNzIgNzIgMCAwIDAgMTA2LjA3IDE1Ni44OCBaIiBmaWxsPSIjOGU3ZGZmIiBzdHJva2U9IiMwZjE3MjAiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik0gOTguNTggOTMuNTYgQSAxMjAgMTIwIDAgMCAxIDE3MC4wMCA3MC4wMCBMIDE3MC4wMCAxMTguMDAgQSA3MiA3MiAwIDAgMCAxMjcuMTUgMTMyLjE0IFoiIGZpbGw9IiM1MmQyNzMiIHN0cm9rZT0iIzBmMTcyMCIgc3Ryb2tlLXdpZHRoPSIyIi8+PGNpcmNsZSBjeD0iMTcwIiBjeT0iMTkwIiByPSI2NCIgZmlsbD0iIzBmMTcyMCIvPjx0ZXh0IHg9IjE3MCIgeT0iMTg0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZTdmMmY3IiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjMwIiBmb250LXdlaWdodD0iNzAwIj42OTwvdGV4dD48dGV4dCB4PSIxNzAiIHk9IjIwOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzkyYTdiMiIgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCI+d29yayBpdGVtczwvdGV4dD48cmVjdCB4PSIzODAiIHk9Ijk4IiB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHJ4PSIzIiBmaWxsPSIjMmVjNGI2Ii8+PHRleHQgeD0iNDAyIiB5PSIxMTAiIGZpbGw9IiNlN2YyZjciIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiPlRvIERvPC90ZXh0Pjx0ZXh0IHg9IjY4OCIgeT0iMTEwIiB0ZXh0LWFuY2hvcj0iZW5kIiBmaWxsPSIjOTJhN2IyIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2Ij4yNzwvdGV4dD48cmVjdCB4PSIzODAiIHk9IjE0MCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiByeD0iMyIgZmlsbD0iIzNhODZmZiIvPjx0ZXh0IHg9IjQwMiIgeT0iMTUyIiBmaWxsPSIjZTdmMmY3IiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2Ij5Db21wbGV0ZWQ8L3RleHQ+PHRleHQgeD0iNjg4IiB5PSIxNTIiIHRleHQtYW5jaG9yPSJlbmQiIGZpbGw9IiM5MmE3YjIiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiPjE5PC90ZXh0PjxyZWN0IHg9IjM4MCIgeT0iMTgyIiB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHJ4PSIzIiBmaWxsPSIjZmY5ZjFjIi8+PHRleHQgeD0iNDAyIiB5PSIxOTQiIGZpbGw9IiNlN2YyZjciIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiPlBlZXIgUmV2aWV3PC90ZXh0Pjx0ZXh0IHg9IjY4OCIgeT0iMTk0IiB0ZXh0LWFuY2hvcj0iZW5kIiBmaWxsPSIjOTJhN2IyIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2Ij42PC90ZXh0PjxyZWN0IHg9IjM4MCIgeT0iMjI0IiB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHJ4PSIzIiBmaWxsPSIjZmY2YjZiIi8+PHRleHQgeD0iNDAyIiB5PSIyMzYiIGZpbGw9IiNlN2YyZjciIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiPkRldiBJbiBQcm9ncmVzczwvdGV4dD48dGV4dCB4PSI2ODgiIHk9IjIzNiIgdGV4dC1hbmNob3I9ImVuZCIgZmlsbD0iIzkyYTdiMiIgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiI+NTwvdGV4dD48cmVjdCB4PSIzODAiIHk9IjI2NiIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiByeD0iMyIgZmlsbD0iIzhlN2RmZiIvPjx0ZXh0IHg9IjQwMiIgeT0iMjc4IiBmaWxsPSIjZTdmMmY3IiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2Ij5RQSBJbiBQcm9ncmVzczwvdGV4dD48dGV4dCB4PSI2ODgiIHk9IjI3OCIgdGV4dC1hbmNob3I9ImVuZCIgZmlsbD0iIzkyYTdiMiIgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiI+NTwvdGV4dD48cmVjdCB4PSIzODAiIHk9IjMwOCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiByeD0iMyIgZmlsbD0iIzUyZDI3MyIvPjx0ZXh0IHg9IjQwMiIgeT0iMzIwIiBmaWxsPSIjZTdmMmY3IiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2Ij5PdGhlcjwvdGV4dD48dGV4dCB4PSI2ODgiIHk9IjMyMCIgdGV4dC1hbmNob3I9ImVuZCIgZmlsbD0iIzkyYTdiMiIgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiI+NzwvdGV4dD48L3N2Zz4=",
+      "labels": [
+        "To Do",
+        "Completed",
+        "Peer Review",
+        "Dev In Progress",
+        "QA In Progress",
+        "Other"
+      ]
+    },
+    "bar": {
+      "title": "Status Count by Workflow State",
+      "data_uri": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3MjAiIGhlaWdodD0iMzgwIiB2aWV3Qm94PSIwIDAgNzIwIDM4MCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcng9IjIwIiBmaWxsPSIjMGYxNzIwIi8+PHRleHQgeD0iMzIiIHk9IjQ2IiBmaWxsPSIjZTdmMmY3IiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iNzAwIj5TdGF0dXMgQ291bnQgYnkgV29ya2Zsb3cgU3RhdGU8L3RleHQ+PHRleHQgeD0iMzIiIHk9Ijk3IiBmaWxsPSIjZTdmMmY3IiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2Ij5UbyBEbzwvdGV4dD48cmVjdCB4PSIyMDAiIHk9Ijc4IiB3aWR0aD0iNDQwIiBoZWlnaHQ9IjI2IiByeD0iMTMiIGZpbGw9IiMyMDMxM2MiLz48cmVjdCB4PSIyMDAiIHk9Ijc4IiB3aWR0aD0iNDQwLjAwIiBoZWlnaHQ9IjI2IiByeD0iMTMiIGZpbGw9IiMyZWM0YjYiLz48dGV4dCB4PSI2NTYiIHk9Ijk3IiBmaWxsPSIjOTJhN2IyIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2Ij4yNzwvdGV4dD48dGV4dCB4PSIzMiIgeT0iMTQxIiBmaWxsPSIjZTdmMmY3IiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2Ij5Db21wbGV0ZWQ8L3RleHQ+PHJlY3QgeD0iMjAwIiB5PSIxMjIiIHdpZHRoPSI0NDAiIGhlaWdodD0iMjYiIHJ4PSIxMyIgZmlsbD0iIzIwMzEzYyIvPjxyZWN0IHg9IjIwMCIgeT0iMTIyIiB3aWR0aD0iMzA5LjYzIiBoZWlnaHQ9IjI2IiByeD0iMTMiIGZpbGw9IiMzYTg2ZmYiLz48dGV4dCB4PSI2NTYiIHk9IjE0MSIgZmlsbD0iIzkyYTdiMiIgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiI+MTk8L3RleHQ+PHRleHQgeD0iMzIiIHk9IjE4NSIgZmlsbD0iI2U3ZjJmNyIgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiI+UGVlciBSZXZpZXc8L3RleHQ+PHJlY3QgeD0iMjAwIiB5PSIxNjYiIHdpZHRoPSI0NDAiIGhlaWdodD0iMjYiIHJ4PSIxMyIgZmlsbD0iIzIwMzEzYyIvPjxyZWN0IHg9IjIwMCIgeT0iMTY2IiB3aWR0aD0iOTcuNzgiIGhlaWdodD0iMjYiIHJ4PSIxMyIgZmlsbD0iI2ZmOWYxYyIvPjx0ZXh0IHg9IjY1NiIgeT0iMTg1IiBmaWxsPSIjOTJhN2IyIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2Ij42PC90ZXh0Pjx0ZXh0IHg9IjMyIiB5PSIyMjkiIGZpbGw9IiNlN2YyZjciIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiPkRldiBJbiBQcm9ncmVzczwvdGV4dD48cmVjdCB4PSIyMDAiIHk9IjIxMCIgd2lkdGg9IjQ0MCIgaGVpZ2h0PSIyNiIgcng9IjEzIiBmaWxsPSIjMjAzMTNjIi8+PHJlY3QgeD0iMjAwIiB5PSIyMTAiIHdpZHRoPSI4MS40OCIgaGVpZ2h0PSIyNiIgcng9IjEzIiBmaWxsPSIjZmY2YjZiIi8+PHRleHQgeD0iNjU2IiB5PSIyMjkiIGZpbGw9IiM5MmE3YjIiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiPjU8L3RleHQ+PHRleHQgeD0iMzIiIHk9IjI3MyIgZmlsbD0iI2U3ZjJmNyIgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiI+UUEgSW4gUHJvZ3Jlc3M8L3RleHQ+PHJlY3QgeD0iMjAwIiB5PSIyNTQiIHdpZHRoPSI0NDAiIGhlaWdodD0iMjYiIHJ4PSIxMyIgZmlsbD0iIzIwMzEzYyIvPjxyZWN0IHg9IjIwMCIgeT0iMjU0IiB3aWR0aD0iODEuNDgiIGhlaWdodD0iMjYiIHJ4PSIxMyIgZmlsbD0iIzhlN2RmZiIvPjx0ZXh0IHg9IjY1NiIgeT0iMjczIiBmaWxsPSIjOTJhN2IyIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2Ij41PC90ZXh0Pjx0ZXh0IHg9IjMyIiB5PSIzMTciIGZpbGw9IiNlN2YyZjciIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiPk90aGVyPC90ZXh0PjxyZWN0IHg9IjIwMCIgeT0iMjk4IiB3aWR0aD0iNDQwIiBoZWlnaHQ9IjI2IiByeD0iMTMiIGZpbGw9IiMyMDMxM2MiLz48cmVjdCB4PSIyMDAiIHk9IjI5OCIgd2lkdGg9IjExNC4wNyIgaGVpZ2h0PSIyNiIgcng9IjEzIiBmaWxsPSIjNTJkMjczIi8+PHRleHQgeD0iNjU2IiB5PSIzMTciIGZpbGw9IiM5MmE3YjIiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiPjc8L3RleHQ+PC9zdmc+",
+      "labels": [
+        "To Do",
+        "Completed",
+        "Peer Review",
+        "Dev In Progress",
+        "QA In Progress",
+        "Other"
+      ]
+    }
+  },
+  "runtime": {
+    "supported": true,
+    "current": "3.14",
+    "recommended": "3.12",
+    "supported_range": ">=3.10 and <=3.14",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "intelligence": {
+    "velocity": {
+      "average_velocity": 43.0,
+      "trend": "increasing"
+    },
+    "backlog": {
+      "remaining_story_points": 260.0,
+      "active_sprint_remaining_sp": 147.0,
+      "backlog_sp": 113.0,
+      "remaining_tasks": 52,
+      "weighted_remaining_work": 260.0
+    },
+    "risks": [
+      {
+        "risk_type": "pending_review_over_48h",
+        "severity": "medium",
+        "description": "2 PRs pending review for over 48 hours.",
+        "reduction_pct": 10
+      },
+      {
+        "risk_type": "slack_escalation",
+        "severity": "low",
+        "description": "Slack escalation or delivery risk signals detected.",
+        "reduction_pct": 5
+      }
+    ],
+    "adjusted_velocity": {
+      "adjusted_velocity": 25.3,
+      "adjustment_reasons": [
+        "2 PRs pending review for over 48 hours. (Impact: -36.2%)",
+        "Slack escalation or delivery risk signals detected. (Impact: -5.0%)"
+      ]
+    },
+    "forecast": {
+      "p50_sprints": 10.2,
+      "p85_sprints": 15.5,
+      "p50_weeks": 20.3,
+      "p85_weeks": 30.9,
+      "confidence": "high",
+      "method": "monte_carlo_1000_sims"
+    },
+    "plan": {
+      "recommended_sp": 20.2,
+      "buffer_allocation": 0.2
+    },
+    "scenarios": {
+      "optimistic": {
+        "sprints": 5.8,
+        "velocity": 45.1,
+        "narrative": "The team is on track to deliver the sprint goals with some buffer for unexpected tasks, and identified risks have minimal impact."
+      },
+      "realistic": {
+        "sprints": 7.1,
+        "velocity": 36.5,
+        "narrative": "The team faces some challenges with pending reviews and Slack escalations, but velocity can still be maintained with focused effort."
+      },
+      "pessimistic": {
+        "sprints": 9.3,
+        "velocity": 27.9,
+        "narrative": "Identified risks significantly hinder the team's velocity, and adjustments are needed to meet sprint goals."
+      }
+    },
+    "recommendations": [
+      {
+        "description": "2 PRs pending review for over 48 hours.",
+        "recommended_action": "Enforce PR review SLAs via Slack bot.",
+        "action_id": "review-sla-001",
+        "severity": "medium"
+      }
+    ],
+    "next_sprint_prediction": {
+      "next_sprint_name": "Sprint 6 - MVP 7",
+      "sprint_weeks": 1,
+      "recommended_capacity_sp": 36.5,
+      "allocated_sp": 40.0,
+      "issue_count": 5,
+      "issues": [
+        {
+          "id": "SHOP-63",
+          "title": "Multi-agent coordination system",
+          "type": "Task",
+          "points": 8.0,
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "complexity": "Large (7+ SP)"
+        },
+        {
+          "id": "SHOP-61",
+          "title": "Outcome evaluation engine",
+          "type": "Task",
+          "points": 8.0,
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "complexity": "Large (7+ SP)"
+        },
+        {
+          "id": "SHOP-59",
+          "title": "Auto escalation engine",
+          "type": "Task",
+          "points": 8.0,
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "complexity": "Large (7+ SP)"
+        },
+        {
+          "id": "SHOP-54",
+          "title": "AI chatbot for team insights",
+          "type": "Task",
+          "points": 8.0,
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "complexity": "Large (7+ SP)"
+        },
+        {
+          "id": "SHOP-52",
+          "title": "Smart backlog prioritization (AI)",
+          "type": "Task",
+          "points": 8.0,
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "complexity": "Large (7+ SP)"
+        }
+      ],
+      "type_breakdown": {
+        "Task": 5
+      },
+      "velocity_trend": {
+        "per_sprint": [
+          {
+            "sprint": "Sprint 1 - MVP 2",
+            "sp_assigned": 34.0,
+            "sp_done": 34.0,
+            "completion_pct": 100.0
+          },
+          {
+            "sprint": "Sprint 2- MVP 3",
+            "sp_assigned": 34.0,
+            "sp_done": 20.0,
+            "completion_pct": 58.8
+          },
+          {
+            "sprint": "Sprint 3- MVP 4",
+            "sp_assigned": 49.0,
+            "sp_done": 5.0,
+            "completion_pct": 10.2
+          },
+          {
+            "sprint": "Sprint 4- MVP 5",
+            "sp_assigned": 47.0,
+            "sp_done": 4.0,
+            "completion_pct": 8.5
+          },
+          {
+            "sprint": "Sprint 5- MVP 6",
+            "sp_assigned": 51.0,
+            "sp_done": 5.0,
+            "completion_pct": 9.8
+          }
+        ],
+        "avg_sp_assigned": 43.0,
+        "avg_sp_done": 13.6,
+        "trend_summary": "SP assigned per sprint: Sprint 1 - MVP 2=34SP (done 34), Sprint 2- MVP 3=34SP (done 20), Sprint 3- MVP 4=49SP (done 5), Sprint 4- MVP 5=47SP (done 4), Sprint 5- MVP 6=51SP (done 5) | Avg SP assigned/sprint: 43.0 | Avg SP done/sprint: 13.6 | Sprint scope trend: INCREASING"
+      },
+      "note": "Predicted sprint: Sprint 6 - MVP 7 (naming pattern: Sprint N - MVP N+1, last sprint was Sprint 5 - MVP 6). Sprint duration: 1 week(s). Recommended capacity: 36.5 SP (based on avg SP assigned per sprint 43.0 x 0.85 planning buffer; avg SP done per sprint is 13.6). Issue selection: Bugs prioritised first, then Stories, then Tasks; within each type higher points first; any number of issues per point value allowed. Trend: SP assigned per sprint: Sprint 1 - MVP 2=34SP (done 34), Sprint 2- MVP 3=34SP (done 20), Sprint 3- MVP 4=49SP (done 5), Sprint 4- MVP 5=47SP (done 4), Sprint 5- MVP 6=51SP (done 5) | Avg SP assigned/sprint: 43.0 | Avg SP done/sprint: 13.6 | Sprint scope trend: INCREASING."
+    },
+    "team_capacity": {
+      "team_members": 2,
+      "total_sp_across_team": 336.0,
+      "members": [
+        {
+          "assignee": "Unassigned",
+          "total_issues": 66,
+          "total_sp": 324.0,
+          "completed_sp": 55.0,
+          "in_progress_sp": 251.0,
+          "blocked_issues": 3,
+          "completion_rate_pct": 17.0,
+          "sprints_active": 6,
+          "issue_types": {
+            "Task": 66
+          },
+          "load_status": "Overcommitted"
+        },
+        {
+          "assignee": "Gargi Gundawar",
+          "total_issues": 3,
+          "total_sp": 12.0,
+          "completed_sp": 7.0,
+          "in_progress_sp": 0.0,
+          "blocked_issues": 1,
+          "completion_rate_pct": 58.3,
+          "sprints_active": 2,
+          "issue_types": {
+            "Task": 3
+          },
+          "load_status": "Balanced"
+        }
+      ]
+    },
+    "sprint_retrospectives": {
+      "sprints": [
+        {
+          "sprint": "Sprint 1 - MVP 2",
+          "sprint_order": 1,
+          "total_issues": 8,
+          "completed_issues": 8,
+          "blocked_issues": 0,
+          "points_assigned": 34.0,
+          "points_completed": 34.0,
+          "issue_completion_rate_pct": 100.0,
+          "sp_completion_rate_pct": 100.0,
+          "blocked_rate_pct": 0.0,
+          "health": "Healthy",
+          "highlights": {
+            "completed": [
+              "Fix the Bugs",
+              "Add notifications",
+              "Add wishlist feature"
+            ],
+            "still_open": [],
+            "blocked": []
+          }
+        },
+        {
+          "sprint": "Sprint 2- MVP 3",
+          "sprint_order": 2,
+          "total_issues": 9,
+          "completed_issues": 6,
+          "blocked_issues": 2,
+          "points_assigned": 34.0,
+          "points_completed": 20.0,
+          "issue_completion_rate_pct": 66.7,
+          "sp_completion_rate_pct": 58.8,
+          "blocked_rate_pct": 22.2,
+          "health": "At Risk",
+          "highlights": {
+            "completed": [
+              "Implement order history",
+              "Add payment retry logic",
+              "Improve error handling"
+            ],
+            "still_open": [
+              "Add chatbot",
+              "fix blocks",
+              "Deploy to staging"
+            ],
+            "blocked": [
+              "Add chatbot",
+              "Deploy to staging"
+            ]
+          }
+        },
+        {
+          "sprint": "Sprint 3- MVP 4",
+          "sprint_order": 3,
+          "total_issues": 9,
+          "completed_issues": 1,
+          "blocked_issues": 0,
+          "points_assigned": 49.0,
+          "points_completed": 5.0,
+          "issue_completion_rate_pct": 11.1,
+          "sp_completion_rate_pct": 10.2,
+          "blocked_rate_pct": 0.0,
+          "health": "Critical",
+          "highlights": {
+            "completed": [],
+            "still_open": [
+              "Product reviews & ratings",
+              "Voice assistant",
+              "AI alert system"
+            ],
+            "blocked": []
+          }
+        },
+        {
+          "sprint": "Sprint 4- MVP 5",
+          "sprint_order": 4,
+          "total_issues": 10,
+          "completed_issues": 1,
+          "blocked_issues": 1,
+          "points_assigned": 47.0,
+          "points_completed": 4.0,
+          "issue_completion_rate_pct": 10.0,
+          "sp_completion_rate_pct": 8.5,
+          "blocked_rate_pct": 10.0,
+          "health": "Critical",
+          "highlights": {
+            "completed": [],
+            "still_open": [
+              "Rate limiting on APIs",
+              "JWT authentication implementation",
+              "Optimize image loading"
+            ],
+            "blocked": [
+              "User profile management"
+            ]
+          }
+        },
+        {
+          "sprint": "Sprint 5- MVP 6",
+          "sprint_order": 5,
+          "total_issues": 9,
+          "completed_issues": 1,
+          "blocked_issues": 1,
+          "points_assigned": 51.0,
+          "points_completed": 5.0,
+          "issue_completion_rate_pct": 11.1,
+          "sp_completion_rate_pct": 9.8,
+          "blocked_rate_pct": 11.1,
+          "health": "Critical",
+          "highlights": {
+            "completed": [],
+            "still_open": [
+              "Backup & recovery system",
+              "Auto-deployment to cloud",
+              "Monitoring with logs (ELK/Grafana)"
+            ],
+            "blocked": [
+              "Secure payment flow"
+            ]
+          }
+        }
+      ],
+      "avg_sp_completion_rate_pct": 37.5,
+      "summary": "Team is at risk \u2014 SP completion below 70% on average."
+    },
+    "pr_quality": {
+      "total_prs": 14,
+      "merged_prs": 12,
+      "pending_prs": 2,
+      "pending_over_48h": 2,
+      "avg_review_iterations": 1.5,
+      "rework_rate_pct": 28.6,
+      "total_review_comments": 21,
+      "high_rework_prs": [
+        {
+          "id": "SHOP-17",
+          "branch": "feature/SHOP-17-admin-dashboard",
+          "iterations": 3,
+          "merged": true
+        },
+        {
+          "id": "SHOP-15",
+          "branch": "feature/SHOP-15-notifications",
+          "iterations": 5,
+          "merged": true
+        },
+        {
+          "id": "SHOP-7",
+          "branch": "bugfix/SHOP-7-checkout",
+          "iterations": 5,
+          "merged": true
+        },
+        {
+          "id": "SHOP-14",
+          "branch": "feature/SHOP-14-wishlist",
+          "iterations": 3,
+          "merged": true
+        }
+      ],
+      "quality_score": 65.7,
+      "quality_label": "Medium",
+      "insight": "Rework rate is 28.6% (4 PRs with 3+ review iterations). Avg iterations per PR: 1.5. 2 PR(s) pending review over 48h."
+    },
+    "stale_issues": {
+      "total_stale_issues": 31,
+      "total_stale_sp": 161.0,
+      "critical_count": 4,
+      "high_risk_count": 5,
+      "issues": [
+        {
+          "id": "SHOP-43",
+          "title": "Secure payment flow",
+          "sprint": "Sprint 5- MVP 6",
+          "status": "Blocked",
+          "assignee": "Unassigned",
+          "points": 8.0,
+          "blocked": true,
+          "has_pr": false,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "SHOP-30",
+          "title": "User profile management",
+          "sprint": "Sprint 4- MVP 5",
+          "status": "Blocked",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": true,
+          "has_pr": false,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "SHOP-16",
+          "title": "Add chatbot",
+          "sprint": "Sprint 2- MVP 3",
+          "status": "Blocked",
+          "assignee": "Gargi Gundawar",
+          "points": 5.0,
+          "blocked": true,
+          "has_pr": false,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "SHOP-9",
+          "title": "Deploy to staging",
+          "sprint": "Sprint 2- MVP 3",
+          "status": "Blocked",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": true,
+          "has_pr": false,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "SHOP-28",
+          "title": "AI alert system",
+          "sprint": "Sprint 3- MVP 4",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 8.0,
+          "blocked": false,
+          "has_pr": false,
+          "risk_level": "High"
+        },
+        {
+          "id": "SHOP-48",
+          "title": "Auto-deployment to cloud",
+          "sprint": "Sprint 5- MVP 6",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "risk_level": "High"
+        },
+        {
+          "id": "SHOP-35",
+          "title": "Database query optimization",
+          "sprint": "Sprint 4- MVP 5",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "risk_level": "High"
+        },
+        {
+          "id": "SHOP-25",
+          "title": "API optimization",
+          "sprint": "Sprint 3- MVP 4",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "risk_level": "High"
+        },
+        {
+          "id": "SHOP-41",
+          "title": "Input validation & sanitization",
+          "sprint": "Sprint 5- MVP 6",
+          "status": "To Do",
+          "assignee": "Unassigned",
+          "points": 3.0,
+          "blocked": false,
+          "has_pr": false,
+          "risk_level": "High"
+        },
+        {
+          "id": "SHOP-47",
+          "title": "Monitoring with logs (ELK/Grafana)",
+          "sprint": "Sprint 5- MVP 6",
+          "status": "Peer review",
+          "assignee": "Unassigned",
+          "points": 8.0,
+          "blocked": false,
+          "has_pr": false,
+          "risk_level": "Medium"
+        },
+        {
+          "id": "SHOP-39",
+          "title": "Load testing for 1000+ users",
+          "sprint": "Sprint 5- MVP 6",
+          "status": "In Progress",
+          "assignee": "Unassigned",
+          "points": 8.0,
+          "blocked": false,
+          "has_pr": false,
+          "risk_level": "Medium"
+        },
+        {
+          "id": "SHOP-34",
+          "title": "Multi-language support",
+          "sprint": "Sprint 4- MVP 5",
+          "status": "Peer review",
+          "assignee": "Unassigned",
+          "points": 8.0,
+          "blocked": false,
+          "has_pr": false,
+          "risk_level": "Medium"
+        },
+        {
+          "id": "SHOP-23",
+          "title": "Build a recommendation engine that suggests products based on user browsing and purchase history.",
+          "sprint": "Sprint 3- MVP 4",
+          "status": "Dev in progress",
+          "assignee": "Unassigned",
+          "points": 8.0,
+          "blocked": false,
+          "has_pr": false,
+          "risk_level": "Medium"
+        },
+        {
+          "id": "SHOP-21",
+          "title": "[AUTO-ESCALATION] scope-control-001 unresolved after 24h",
+          "sprint": "Sprint 3- MVP 4",
+          "status": "In Progress",
+          "assignee": "Unassigned",
+          "points": 6.0,
+          "blocked": false,
+          "has_pr": false,
+          "risk_level": "Medium"
+        },
+        {
+          "id": "SHOP-49",
+          "title": "Backup & recovery system",
+          "sprint": "Sprint 5- MVP 6",
+          "status": "peer accepted",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "risk_level": "Medium"
+        },
+        {
+          "id": "SHOP-46",
+          "title": "Setup CI/CD pipeline improvement",
+          "sprint": "Sprint 5- MVP 6",
+          "status": "Ready for QA",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "risk_level": "Medium"
+        },
+        {
+          "id": "SHOP-44",
+          "title": "Prevent SQL injection & XSS",
+          "sprint": "Sprint 5- MVP 6",
+          "status": "Dev done",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "risk_level": "Medium"
+        },
+        {
+          "id": "SHOP-40",
+          "title": "JWT authentication implementation",
+          "sprint": "Sprint 4- MVP 5",
+          "status": "In Progress",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "risk_level": "Medium"
+        },
+        {
+          "id": "SHOP-36",
+          "title": "API response caching (Redis)",
+          "sprint": "Sprint 4- MVP 5",
+          "status": "Peer review",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "risk_level": "Medium"
+        },
+        {
+          "id": "SHOP-33",
+          "title": "Discount & coupon system",
+          "sprint": "Sprint 4- MVP 5",
+          "status": "peer accepted",
+          "assignee": "Unassigned",
+          "points": 5.0,
+          "blocked": false,
+          "has_pr": false,
+          "risk_level": "Medium"
+        }
+      ],
+      "insight": "31 issue(s) are stuck in past sprints (not Done). Total carry-over risk: 161 SP. 4 blocked, 5 not started."
+    },
+    "delivery_risk_score": {
+      "score": 31.4,
+      "label": "Critical",
+      "color": "red",
+      "max_score": 100,
+      "breakdown": [
+        {
+          "factor": "SP Completion Rate",
+          "deduction": 20,
+          "detail": "Avg 37.5% \u2014 Below target"
+        },
+        {
+          "factor": "Stale Issues",
+          "deduction": 20,
+          "detail": "31 carry-over issues, 4 blocked"
+        },
+        {
+          "factor": "PR Quality / Review Delays",
+          "deduction": 18.6,
+          "detail": "Rework rate 28.6%, 2 PRs pending >48h"
+        },
+        {
+          "factor": "Active Risk Signals",
+          "deduction": 10,
+          "detail": "2 risk(s) detected"
+        }
+      ],
+      "interpretation": "Delivery Risk Score: 31.4/100 (Critical). Key concerns: SP Completion Rate; Stale Issues; PR Quality / Review Delays."
+    },
+    "team_health_score": {
+      "score": 38.9,
+      "max_score": 100,
+      "grade": "Critical",
+      "components": {
+        "sp_delivery": {
+          "score": 15.0,
+          "max": 40,
+          "detail": "Avg SP completion rate: 37.5%"
+        },
+        "code_quality": {
+          "score": 16.4,
+          "max": 25,
+          "detail": "PR quality score: 65.7/100"
+        },
+        "issue_hygiene": {
+          "score": 0,
+          "max": 20,
+          "detail": "31 stale issues detected"
+        },
+        "capacity_balance": {
+          "score": 7.5,
+          "max": 15,
+          "detail": "1/2 member(s) overcommitted"
+        }
+      },
+      "interpretation": "Team Health Score: 38.9/100 (Critical). SP Delivery: 15.0/40 | Code Quality: 16.4/25 | Issue Hygiene: 0/20 | Capacity: 7.5/15."
+    },
+    "executive_summary": {
+      "text": "## Weekly Delivery Executive Summary\n\n### Delivery Health: Critical (31.4/100) | Team Health: Critical (38.9/100)\n\n**Velocity & Forecast**\n- Avg SP assigned per sprint: 43 | Trend: INCREASING\n- Risk-adjusted velocity: 25.3 SP/sprint\n- Remaining scope: 260 SP\n- Forecast to completion: 10.2 sprints (realistic) / 15.5 sprints (conservative)\n\n**Sprint Delivery**\n- Avg SP completion rate across all sprints: 37.5%\n- Verdict: Team is at risk \u2014 SP completion below 70% on average.\n- Carry-over risk: 31 unresolved issues (161 SP) stuck in past sprints\n\n**Code Quality**\n- PR rework rate: 28.6% | PRs pending review >48h: 2\n- PR quality label: Medium\n\n**Next Sprint Plan**\n- Predicted sprint: Sprint 6 - MVP 7\n- Recommended capacity: 36.5 SP (5 issues)\n\n**Top Risk Factors**\n- SP Completion Rate: -20 pts \u2014 Avg 37.5% \u2014 Below target\n- Stale Issues: -20 pts \u2014 31 carry-over issues, 4 blocked\n- PR Quality / Review Delays: -18.6 pts \u2014 Rework rate 28.6%, 2 PRs pending >48h",
+      "delivery_risk_score": 31.4,
+      "delivery_risk_label": "Critical",
+      "team_health_score": 38.9,
+      "team_health_grade": "Critical",
+      "forecast_p50_sprints": 10.2,
+      "forecast_p85_sprints": 15.5,
+      "next_sprint_name": "Sprint 6 - MVP 7",
+      "generated_note": "Auto-generated executive summary \u2014 no LLM required."
+    },
+    "sprint_over_sprint_trend": {
+      "trajectory": "RECOVERING",
+      "sprints": [
+        {
+          "sprint": "Sprint 1 - MVP 2",
+          "order": 1,
+          "sp_assigned": 34.0,
+          "sp_done": 34.0,
+          "sp_completion_rate": 100.0,
+          "total_issues": 8,
+          "completed_issues": 8,
+          "blocked_issues": 0,
+          "issue_completion_rate": 100.0,
+          "sp_rate_delta": null,
+          "sp_done_delta": null,
+          "direction": "baseline"
+        },
+        {
+          "sprint": "Sprint 2- MVP 3",
+          "order": 2,
+          "sp_assigned": 34.0,
+          "sp_done": 20.0,
+          "sp_completion_rate": 58.8,
+          "total_issues": 9,
+          "completed_issues": 6,
+          "blocked_issues": 2,
+          "issue_completion_rate": 66.7,
+          "sp_rate_delta": -41.2,
+          "sp_done_delta": -14.0,
+          "direction": "declining"
+        },
+        {
+          "sprint": "Sprint 3- MVP 4",
+          "order": 3,
+          "sp_assigned": 49.0,
+          "sp_done": 5.0,
+          "sp_completion_rate": 10.2,
+          "total_issues": 9,
+          "completed_issues": 1,
+          "blocked_issues": 0,
+          "issue_completion_rate": 11.1,
+          "sp_rate_delta": -48.6,
+          "sp_done_delta": -15.0,
+          "direction": "declining"
+        },
+        {
+          "sprint": "Sprint 4- MVP 5",
+          "order": 4,
+          "sp_assigned": 47.0,
+          "sp_done": 4.0,
+          "sp_completion_rate": 8.5,
+          "total_issues": 10,
+          "completed_issues": 1,
+          "blocked_issues": 1,
+          "issue_completion_rate": 10.0,
+          "sp_rate_delta": -1.7,
+          "sp_done_delta": -1.0,
+          "direction": "stable"
+        },
+        {
+          "sprint": "Sprint 5- MVP 6",
+          "order": 5,
+          "sp_assigned": 51.0,
+          "sp_done": 5.0,
+          "sp_completion_rate": 9.8,
+          "total_issues": 9,
+          "completed_issues": 1,
+          "blocked_issues": 1,
+          "issue_completion_rate": 11.1,
+          "sp_rate_delta": 1.3,
+          "sp_done_delta": 1.0,
+          "direction": "stable"
+        }
+      ],
+      "improving_count": 0,
+      "declining_count": 2,
+      "stable_count": 2,
+      "best_sprint": {
+        "name": "Sprint 1 - MVP 2",
+        "sp_completion_rate": 100.0
+      },
+      "worst_sprint": {
+        "name": "Sprint 4- MVP 5",
+        "sp_completion_rate": 8.5
+      },
+      "verdict": "Overall trajectory: RECOVERING. 0 sprint(s) improved, 2 declined, 2 held steady. Best sprint: Sprint 1 - MVP 2 (100.0% SP done). Worst sprint: Sprint 4- MVP 5 (8.5% SP done)."
+    },
+    "active_work_snapshot": {
+      "total_active_issues": 26,
+      "total_active_sp": 135.0,
+      "assignee_count": 2,
+      "members": [
+        {
+          "assignee": "Unassigned",
+          "active_issues": 25,
+          "active_sp": 130.0,
+          "blocked_count": 3,
+          "issues": [
+            {
+              "id": "SHOP-47",
+              "title": "Monitoring with logs (ELK/Grafana)",
+              "status": "Peer review",
+              "sprint": "Sprint 5- MVP 6",
+              "points": 8.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-39",
+              "title": "Load testing for 1000+ users",
+              "status": "In Progress",
+              "sprint": "Sprint 5- MVP 6",
+              "points": 8.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-34",
+              "title": "Multi-language support",
+              "status": "Peer review",
+              "sprint": "Sprint 4- MVP 5",
+              "points": 8.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-23",
+              "title": "Build a recommendation engine that suggests products based on user browsing and purchase history.",
+              "status": "Dev in progress",
+              "sprint": "Sprint 3- MVP 4",
+              "points": 8.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-43",
+              "title": "Secure payment flow",
+              "status": "Blocked",
+              "sprint": "Sprint 5- MVP 6",
+              "points": 8.0,
+              "blocked": true,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-21",
+              "title": "[AUTO-ESCALATION] scope-control-001 unresolved after 24h",
+              "status": "In Progress",
+              "sprint": "Sprint 3- MVP 4",
+              "points": 6.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-49",
+              "title": "Backup & recovery system",
+              "status": "peer accepted",
+              "sprint": "Sprint 5- MVP 6",
+              "points": 5.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-46",
+              "title": "Setup CI/CD pipeline improvement",
+              "status": "Ready for QA",
+              "sprint": "Sprint 5- MVP 6",
+              "points": 5.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-44",
+              "title": "Prevent SQL injection & XSS",
+              "status": "Dev done",
+              "sprint": "Sprint 5- MVP 6",
+              "points": 5.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-40",
+              "title": "JWT authentication implementation",
+              "status": "In Progress",
+              "sprint": "Sprint 4- MVP 5",
+              "points": 5.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-36",
+              "title": "API response caching (Redis)",
+              "status": "Peer review",
+              "sprint": "Sprint 4- MVP 5",
+              "points": 5.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-33",
+              "title": "Discount & coupon system",
+              "status": "peer accepted",
+              "sprint": "Sprint 4- MVP 5",
+              "points": 5.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-32",
+              "title": "Product reviews & ratings",
+              "status": "Dev done",
+              "sprint": "Sprint 3- MVP 4",
+              "points": 5.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-26",
+              "title": "API optimization",
+              "status": "Ready for QA",
+              "sprint": "Sprint 3- MVP 4",
+              "points": 5.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-24",
+              "title": "Order tracking",
+              "status": "In Review",
+              "sprint": "Sprint 3- MVP 4",
+              "points": 5.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-30",
+              "title": "User profile management",
+              "status": "Blocked",
+              "sprint": "Sprint 4- MVP 5",
+              "points": 5.0,
+              "blocked": true,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-9",
+              "title": "Deploy to staging",
+              "status": "Blocked",
+              "sprint": "Sprint 2- MVP 3",
+              "points": 5.0,
+              "blocked": true,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-45",
+              "title": "Dockerize application",
+              "status": "In Review",
+              "sprint": "Sprint 5- MVP 6",
+              "points": 4.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-42",
+              "title": "Rate limiting on APIs",
+              "status": "Ready for QA",
+              "sprint": "Sprint 4- MVP 5",
+              "points": 4.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-31",
+              "title": "Wishlist sharing feature",
+              "status": "Dev done",
+              "sprint": "Sprint 4- MVP 5",
+              "points": 4.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-27",
+              "title": "Prediction model",
+              "status": "QA in progess",
+              "sprint": "Sprint 3- MVP 4",
+              "points": 4.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-12",
+              "title": "fix blocks",
+              "status": "In Review",
+              "sprint": "Sprint 2- MVP 3",
+              "points": 4.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-38",
+              "title": "Optimize image loading",
+              "status": "QA in progess",
+              "sprint": "Sprint 4- MVP 5",
+              "points": 3.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-37",
+              "title": "Lazy loading for frontend",
+              "status": "In Progress",
+              "sprint": "Sprint 4- MVP 5",
+              "points": 3.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            },
+            {
+              "id": "SHOP-29",
+              "title": "Voice assistant",
+              "status": "peer accepted",
+              "sprint": "Sprint 3- MVP 4",
+              "points": 3.0,
+              "blocked": false,
+              "has_pr": false,
+              "type": "Task"
+            }
+          ]
+        },
+        {
+          "assignee": "Gargi Gundawar",
+          "active_issues": 1,
+          "active_sp": 5.0,
+          "blocked_count": 1,
+          "issues": [
+            {
+              "id": "SHOP-16",
+              "title": "Add chatbot",
+              "status": "Blocked",
+              "sprint": "Sprint 2- MVP 3",
+              "points": 5.0,
+              "blocked": true,
+              "has_pr": false,
+              "type": "Task"
+            }
+          ]
+        }
+      ],
+      "snapshot_note": "26 issue(s) currently in progress (135 SP) across 2 assignee(s). Active = status is neither Done/Closed nor To Do/Open."
+    }
+  },
+  "executed_actions": [
+    {
+      "action_id": "review-sla-001",
+      "status": "executed",
+      "detail": "Alert sent (HTTP 200)."
+    },
+    {
+      "action_id": "blocker-triage-001",
+      "status": "executed",
+      "detail": "Alert sent (HTTP 200)."
+    },
+    {
+      "action_id": "scope-control-001",
+      "status": "executed",
+      "detail": "Alert sent (HTTP 200)."
+    }
+  ]
+}

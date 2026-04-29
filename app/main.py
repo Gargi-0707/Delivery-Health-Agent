@@ -3,15 +3,24 @@ import os
 import time
 
 from fastapi import FastAPI, Header, HTTPException, Query
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 
-from sprint_analyzer import generate_weekly_report
-from observability import METRICS, bootstrap_metrics_from_agent_memory, configure_structured_logging, log_event
+from sprint_analyzer import generate_weekly_report, METRICS, bootstrap_metrics_from_agent_memory, configure_structured_logging, log_event
+from delivery_intelligence import run_delivery_intelligence
+from agentic_engine import _load_memory_state
+from app.agent_bot import ask_delivery_bot
+
+
 
 
 app = FastAPI(title="Delivery Health API", version="1.0.0")
 configure_structured_logging()
 bootstrap_metrics_from_agent_memory()
+
+
+@app.get("/")
+def read_root():
+    return RedirectResponse(url="/chat")
 
 
 def _validate_api_key(x_api_key):
@@ -63,7 +72,8 @@ def get_health_report(
             "slack": report.get("slack", {}),
             "insights": output.get("insights"),
             "agent": output.get("agent"),
-            "executed_actions": report.get("executed_actions", []),
+            "intelligence": report.get("intelligence"),
+            "executed_actions": report.get("executed_actions"),
             "raw": report,
         }
 
@@ -89,242 +99,337 @@ def get_health_report(
         )
         raise HTTPException(status_code=500, detail="Failed to generate report. Check server logs for details.")
 
-
-@app.get("/metrics/dashboard")
-def metrics_dashboard(x_api_key: str | None = Header(default=None)):
+@app.get("/delivery-forecast")
+def get_delivery_forecast(x_api_key: str | None = Header(default=None)):
     _validate_api_key(x_api_key)
-    return METRICS.snapshot()
+    # Generate the latest health report
+    report_output = generate_weekly_report()
+    report = report_output.get("report", {})
+    # Load agent memory state
+    memory_state = _load_memory_state()
+    # Run the delivery intelligence engine
+    result = run_delivery_intelligence(report, memory_state)
+    return result
 
 
-@app.get("/metrics/ui", response_class=HTMLResponse)
-def metrics_ui(
-        x_api_key: str | None = Header(default=None),
-        api_key: str | None = Query(default=None),
-):
-        _validate_api_key(x_api_key or api_key)
+# --- AI DELIVERY BOT ENDPOINTS ---
 
-        initial = METRICS.snapshot()
-        return f"""
-<!doctype html>
-<html lang=\"en\">
+
+# Simple in-memory chat history for the bot
+CHAT_HISTORY = []
+
+@app.post("/api/chat")
+async def chat_with_bot(payload: dict, x_api_key: str | None = Header(default=None)):
+    global CHAT_HISTORY
+    _validate_api_key(x_api_key)
+    question = payload.get("question")
+    if not question:
+        raise HTTPException(status_code=400, detail="Question is required")
+    
+    try:
+        # Pass the current history to the bot
+        response = ask_delivery_bot(question, history=CHAT_HISTORY)
+        
+        # Update history with the latest exchange
+        CHAT_HISTORY.append({"role": "user", "content": question})
+        CHAT_HISTORY.append({"role": "assistant", "content": response})
+        
+        # Keep history manageable
+        if len(CHAT_HISTORY) > 10:
+            CHAT_HISTORY = CHAT_HISTORY[-10:]
+            
+        return {"answer": response}
+    except Exception as e:
+        log_event("error", "bot_chat_failure", error=str(e))
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/chat", response_class=HTMLResponse)
+def chat_interface():
+    api_key = os.getenv("DELIVERY_HEALTH_API_KEY", "")
+    html_content = """
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset=\"utf-8\" />
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
-    <title>Delivery Health Metrics</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Delivery Intelligence Bot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        :root {{
-            --bg: #0c1418;
-            --panel: #132028;
-            --panel-alt: #1a2a34;
-            --text: #e7f2f7;
-            --muted: #92a7b2;
-            --accent: #2ec4b6;
-            --warn: #ff9f1c;
-            --ok: #52d273;
-            --bad: #ff6b6b;
-            --ring: rgba(46, 196, 182, 0.35);
-        }}
-        * {{ box-sizing: border-box; }}
-        body {{
+        :root {
+            --bg: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --text: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at top left, #1e1b4b, #0f172a);
             color: var(--text);
-            background:
-                radial-gradient(circle at 15% 10%, #1b3a42 0%, transparent 35%),
-                radial-gradient(circle at 85% 90%, #1f2f46 0%, transparent 45%),
-                var(--bg);
-            min-height: 100vh;
-        }}
-        .wrap {{
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 24px;
-        }}
-        .hero {{
-            margin-bottom: 18px;
-            padding: 18px 20px;
-            background: linear-gradient(120deg, #14313a, #1d2f3e);
-            border: 1px solid #294654;
-            border-radius: 16px;
-            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.22);
-        }}
-        h1 {{
-            margin: 0 0 6px;
-            font-size: 28px;
-            letter-spacing: 0.4px;
-        }}
-        .meta {{
-            color: var(--muted);
-            font-size: 14px;
-        }}
-        .grid {{
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 14px;
-            margin-bottom: 14px;
-        }}
-        .card {{
-            background: var(--panel);
-            border: 1px solid #243b47;
-            border-radius: 14px;
-            padding: 14px;
-            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
-        }}
-        .title {{ color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }}
-        .value {{ font-size: 30px; font-weight: 700; margin-top: 8px; }}
-        .sub {{ color: var(--muted); font-size: 13px; margin-top: 4px; }}
-        .bar {{
-            margin-top: 10px;
-            height: 10px;
-            background: #223742;
-            border-radius: 999px;
-            overflow: hidden;
-        }}
-        .fill {{
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent), #56e39f);
-            transition: width 0.45s ease;
-        }}
-        .panel {{
-            background: var(--panel-alt);
-            border: 1px solid #26404f;
-            border-radius: 14px;
-            padding: 14px;
-            margin-bottom: 14px;
-        }}
-        .list {{ margin: 8px 0 0; padding: 0; list-style: none; }}
-        .list li {{
+            height: 100vh;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        header {
+            padding: 1.5rem 2rem;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
             align-items: center;
-            border-bottom: 1px dashed #2f4b5a;
-            padding: 9px 0;
-            font-size: 14px;
-        }}
-        .list li:last-child {{ border-bottom: none; }}
-        .badge {{
-            min-width: 44px;
-            text-align: center;
-            border-radius: 999px;
-            padding: 3px 10px;
-            font-weight: 700;
-            background: #223742;
-        }}
-        .err {{ background: rgba(255, 107, 107, 0.2); color: #ffb2b2; }}
-        .ok {{ background: rgba(82, 210, 115, 0.2); color: #b6f1c5; }}
-        .muted {{ color: var(--muted); }}
-        @media (max-width: 700px) {{
-            .value {{ font-size: 24px; }}
-            h1 {{ font-size: 24px; }}
-        }}
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(90deg, var(--primary-light), #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            scroll-behavior: smooth;
+        }
+
+        /* Scrollbar */
+        main::-webkit-scrollbar { width: 6px; }
+        main::-webkit-scrollbar-track { background: transparent; }
+        main::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+
+        .message {
+            max-width: 85%;
+            padding: 1rem 1.25rem;
+            border-radius: 1rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .user-msg {
+            align-self: flex-end;
+            background: var(--primary);
+            color: white;
+            border-bottom-right-radius: 0.25rem;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .bot-msg {
+            align-self: flex-start;
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom-left-radius: 0.25rem;
+        }
+
+        .bot-msg h1, .bot-msg h2, .bot-msg h3 { margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .bot-msg ul, .bot-msg ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+        .bot-msg code { background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; }
+
+        .typing {
+            font-style: italic;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            display: none;
+        }
+
+        footer {
+            padding: 2rem;
+            background: transparent;
+        }
+
+        .input-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            padding: 0.5rem;
+            display: flex;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: border-color 0.3s;
+        }
+
+        .input-container:focus-within {
+            border-color: var(--primary);
+        }
+
+        input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background: var(--primary-light);
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .initial-suggestions {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .suggestion-chip {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-dim);
+        }
+
+        .suggestion-chip:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--primary);
+            color: white;
+        }
     </style>
 </head>
 <body>
-    <div class=\"wrap\">
-        <div class=\"hero\">
-            <h1>Delivery Health Metrics Dashboard</h1>
-            <div class=\"meta\" id=\"updated\">Loading...</div>
+    <header>
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Delivery Intelligence Bot
         </div>
+        <div style="font-size: 0.8rem; color: var(--text-dim);">V1.0.0 (AI Agent Mode)</div>
+    </header>
 
-        <div class=\"grid\">
-            <div class=\"card\">
-                <div class=\"title\">Run Success Rate</div>
-                <div class=\"value\" id=\"runRate\">0%</div>
-                <div class=\"sub\" id=\"runCounts\">0 successful / 0 total</div>
-                <div class=\"bar\"><div class=\"fill\" id=\"runRateBar\" style=\"width:0%\"></div></div>
-            </div>
-            <div class=\"card\">
-                <div class=\"title\">Action Execution Success</div>
-                <div class=\"value\" id=\"actionRate\">0%</div>
-                <div class=\"sub\" id=\"actionCounts\">0 executed / 0 attempted</div>
-                <div class=\"bar\"><div class=\"fill\" id=\"actionRateBar\" style=\"width:0%\"></div></div>
-            </div>
-            <div class=\"card\">
-                <div class=\"title\">Unresolved Outcome Aging</div>
-                <div class=\"value\" id=\"unresolvedAvg\">0h</div>
-                <div class=\"sub\" id=\"unresolvedMeta\">avg age | max 0h</div>
-            </div>
-            <div class=\"card\">
-                <div class=\"title\">External API Failures</div>
-                <div class=\"value\" id=\"externalTotal\">0</div>
-                <div class=\"sub\">jira + github + slack + groq + other</div>
-            </div>
+    <main id="chat-box">
+        <div class="message bot-msg">
+            Hello! I am your AI Delivery Intelligence Assistant. I have indexed your current sprint, backlog, GitHub PRs, and Slack conversations. 
+            <br><br>
+            What would you like to know about the project today?
         </div>
+    </main>
 
-        <div class=\"panel\">
-            <div class=\"title\">External API Failure Breakdown</div>
-            <ul class=\"list\" id=\"apiList\"></ul>
+    <footer>
+        <div class="initial-suggestions" id="suggestions">
+            <div class="suggestion-chip" onclick="ask('How is the current sprint progress?')">Sprint Progress</div>
+            <div class="suggestion-chip" onclick="ask('What are the top delivery risks right now?')">Top Risks</div>
+            <div class="suggestion-chip" onclick="ask('Analyze PR review bottlenecks')">PR Bottlenecks</div>
+            <div class="suggestion-chip" onclick="ask('When will we finish the project?')">Delivery Forecast</div>
         </div>
-
-        <div class=\"panel\">
-            <div class=\"title\">Live Mode</div>
-            <div class=\"muted\">Auto-refresh every 10 seconds.</div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Ask about your project delivery..." onkeypress="if(event.key === 'Enter') sendMessage()">
+            <button onclick="sendMessage()">Send</button>
         </div>
-    </div>
+        <div class="typing" id="typing-indicator" style="margin-top: 1rem; text-align: center;">AI is analyzing project data...</div>
+    </footer>
 
     <script>
-        const initialData = {initial};
+        const chatBox = document.getElementById('chat-box');
+        const userInput = document.getElementById('user-input');
+        const typingIndicator = document.getElementById('typing-indicator');
+        const API_KEY = "{api_key}";
 
-        function setText(id, value) {{
-            const el = document.getElementById(id);
-            if (el) el.textContent = value;
-        }}
+        function appendMessage(role, content) {
+            const div = document.createElement('div');
+            div.className = `message ${role}-msg`;
+            
+            if (role === 'bot') {
+                div.innerHTML = marked.parse(content);
+            } else {
+                div.textContent = content;
+            }
+            
+            chatBox.appendChild(div);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
 
-        function setWidth(id, pct) {{
-            const el = document.getElementById(id);
-            if (el) el.style.width = `${{Math.max(0, Math.min(100, Number(pct) || 0))}}%`;
-        }}
+        async function ask(question) {
+            userInput.value = question;
+            sendMessage();
+        }
 
-        function render(data) {{
-            const runs = data.runs || {{}};
-            const action = data.action_execution || {{}};
-            const aging = data.unresolved_outcome_aging_hours || {{}};
-            const external = data.external_api_failures || {{}};
+        async function sendMessage() {
+            const question = userInput.value.trim();
+            if (!question) return;
 
-            const runRate = Number(runs.success_rate_pct || 0).toFixed(2);
-            const actionRate = Number(action.success_pct || 0).toFixed(2);
+            appendMessage('user', question);
+            userInput.value = '';
+            document.getElementById('suggestions').style.display = 'none';
+            
+            typingIndicator.style.display = 'block';
 
-            setText("runRate", `${{runRate}}%`);
-            setText("runCounts", `${{runs.successful || 0}} successful / ${{runs.total || 0}} total`);
-            setWidth("runRateBar", runRate);
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'x-api-key': API_KEY
+                    },
+                    body: JSON.stringify({ question })
+                });
 
-            setText("actionRate", `${{actionRate}}%`);
-            setText("actionCounts", `${{action.executed || 0}} executed / ${{action.attempted || 0}} attempted`);
-            setWidth("actionRateBar", actionRate);
+                if (response.status === 401) throw new Error('Unauthorized: Missing or invalid API Key');
+                if (!response.ok) throw new Error('Failed to reach AI engine');
 
-            setText("unresolvedAvg", `${{Number(aging.avg_hours || 0).toFixed(2)}}h`);
-            setText("unresolvedMeta", `sample ${{aging.sample_count || 0}} | max ${{Number(aging.max_hours || 0).toFixed(2)}}h`);
-
-            const totalExternal = Object.values(external).reduce((acc, val) => acc + Number(val || 0), 0);
-            setText("externalTotal", String(totalExternal));
-            setText("updated", `Last updated: ${{data.generated_at_utc || "unknown"}}`);
-
-            const list = document.getElementById("apiList");
-            list.innerHTML = "";
-            Object.entries(external).forEach(([name, count]) => {{
-                const li = document.createElement("li");
-                li.innerHTML = `<span>${{name}}</span><span class=\"badge ${{Number(count) > 0 ? "err" : "ok"}}\">${{count}}</span>`;
-                list.appendChild(li);
-            }});
-        }}
-
-        async function refresh() {{
-            try {{
-                const query = new URLSearchParams(window.location.search);
-                const key = query.get("api_key");
-                const headers = key ? {{"x-api-key": key}} : {{}};
-                const response = await fetch("/metrics/dashboard", {{headers}});
-                if (!response.ok) throw new Error(`HTTP ${{response.status}}`);
                 const data = await response.json();
-                render(data);
-            }} catch (err) {{
-                setText("updated", `Dashboard refresh failed: ${{err.message}}`);
-            }}
-        }}
-
-        render(initialData);
-        setInterval(refresh, 10000);
+                appendMessage('bot', data.answer);
+            } catch (error) {
+                appendMessage('bot', '❌ Error: ' + error.message);
+            } finally {
+                typingIndicator.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>
-"""
+    """
+    return html_content.replace("{api_key}", api_key)
