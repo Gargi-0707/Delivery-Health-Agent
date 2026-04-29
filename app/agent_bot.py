@@ -151,60 +151,77 @@ def get_latest_context(user_question=""):
                 slack_msgs = slack.get("issue_highlights", []) + slack.get("success_highlights", [])
                 context["slack_highlights"] = list(dict.fromkeys(slack_msgs))[-5:]
 
-                # 4. HIGH-DENSITY JIRA INDEX
+                # 4. SMART PRIORITY JIRA INDEX
                 jira_issues = jira.get("issues", {})
                 all_issues = []
                 for s_name, issues in jira_issues.items():
                     for issue in issues:
-                        all_issues.append([
-                            issue.get("id"),
-                            issue.get("status"),
-                            issue.get("assignee") or "Unassigned",
-                            issue.get("points") or 0,
-                            issue.get("type") or "Task",
-                            s_name,
-                            issue.get("title")
-                        ])
+                        all_issues.append({
+                            "data": [
+                                issue.get("id"),
+                                issue.get("status"),
+                                issue.get("assignee") or "Unassigned",
+                                issue.get("points") or 0,
+                                issue.get("type") or "Task",
+                                s_name,
+                                issue.get("title")
+                            ],
+                            "is_blocked": issue.get("blocked", False),
+                            "priority_rank": 0 if issue.get("priority") == "High" else 1
+                        })
                 
                 q_lower = user_question.lower()
+                target_id = None
                 if "shop-" in q_lower:
                     match = re.search(r'shop-\d+', q_lower)
                     if match:
                         target_id = match.group(0).upper()
-                        all_issues.sort(key=lambda x: 0 if x[0] == target_id else 1)
-                
-                for status_name in jira.get("status_counts", {}).keys():
-                    if status_name.lower() in q_lower:
-                        all_issues.sort(key=lambda x: 0 if x[1].lower() == status_name.lower() else 1)
-                        break
-                
-                context["issue_index"] = all_issues[:85]
 
-                # 5. HIGH-DENSITY GITHUB INDEX
+                # Priority Sorting: 1. Target ID, 2. Blocked, 3. High Priority
+                def issue_ranker(item):
+                    rank = 10
+                    if target_id and item["data"][0] == target_id: rank = 0
+                    elif item["is_blocked"]: rank = 1
+                    elif item["priority_rank"] == 0: rank = 2
+                    return rank
+
+                all_issues.sort(key=issue_ranker)
+                
+                # Dynamic Slicing: take top 100 high-value issues
+                context["issue_index"] = [item["data"] for item in all_issues[:100]]
+                context["context_metadata"] = {
+                    "total_issues_available": len(all_issues),
+                    "issues_in_context": len(context["issue_index"]),
+                    "was_trimmed": len(all_issues) > 100
+                }
+
+                # 5. SMART PRIORITY GITHUB INDEX
                 prs = github.get("prs", [])
                 all_prs = []
                 for pr in prs:
                     pr_id = pr.get("shop_id") or pr.get("id")
-                    all_prs.append([
-                        pr_id,
-                        pr.get("status"),
-                        pr.get("author") or "Unknown",
-                        pr.get("merged", False),
-                        pr.get("iterations", 0),
-                        pr.get("branch") or pr.get("title"),
-                        pr.get("comments_text", [])[:2]
-                    ])
+                    all_prs.append({
+                        "data": [
+                            pr_id,
+                            pr.get("status"),
+                            pr.get("author") or "Unknown",
+                            pr.get("merged", False),
+                            pr.get("iterations", 0),
+                            pr.get("branch") or pr.get("title"),
+                            pr.get("comments_text", [])[:1]
+                        ],
+                        "is_pending": "pending" in str(pr.get("status")).lower()
+                    })
                 
-                if "pr" in q_lower or "pull" in q_lower or "review" in q_lower:
-                    all_prs.sort(key=lambda x: 0 if "pending" in str(x[1]).lower() else 1)
-                
-                if "shop-" in q_lower:
-                    match = re.search(r'shop-\d+', q_lower)
-                    if match:
-                        target_id = match.group(0).upper()
-                        all_prs.sort(key=lambda x: 0 if str(x[0]) == target_id else 1)
+                # Priority Sorting: 1. Target ID, 2. Pending Review
+                def pr_ranker(item):
+                    rank = 5
+                    if target_id and str(item["data"][0]) == target_id: rank = 0
+                    elif item["is_pending"]: rank = 1
+                    return rank
 
-                context["pr_index"] = all_prs[:15]
+                all_prs.sort(key=pr_ranker)
+                context["pr_index"] = [item["data"] for item in all_prs[:20]]
 
                 # 6. INTELLIGENCE BLOCK — forecast, velocity, backlog, next sprint
                 intelligence = full_report.get("intelligence", {})
