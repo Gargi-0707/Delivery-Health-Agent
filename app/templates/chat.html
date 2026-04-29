@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Delivery Intelligence Bot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Delivery Intelligence Bot
+        </div>
+        <div style="font-size: 0.8rem; color: var(--text-dim);">V1.0.0 (AI Agent Mode)</div>
+    </header>
+
+    <main id="chat-box">
+        <div class="message bot-msg">
+            Hello! I am your AI Delivery Intelligence Assistant. I have indexed your current sprint, backlog, GitHub PRs, and Slack conversations. 
+            <br><br>
+            What would you like to know about the project today?
+        </div>
+    </main>
+
+    <footer>
+        <div class="initial-suggestions" id="suggestions">
+            <div class="suggestion-chip" onclick="ask('How is the current sprint progress?')">Sprint Progress</div>
+            <div class="suggestion-chip" onclick="ask('What are the top delivery risks right now?')">Top Risks</div>
+            <div class="suggestion-chip" onclick="ask('Analyze PR review bottlenecks')">PR Bottlenecks</div>
+            <div class="suggestion-chip" onclick="ask('When will we finish the project?')">Delivery Forecast</div>
+        </div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Ask about your project delivery..." onkeypress="if(event.key === 'Enter') sendMessage()">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+        <div class="typing" id="typing-indicator" style="margin-top: 1rem; text-align: center;">AI is analyzing project data...</div>
+    </footer>
+
+    <script src="/static/script.js"></script>
+    <script>
+        // Pass the API Key from the server to the JS file
+        setApiKey("{{ api_key }}");
+    </script>
+</body>
+</html>
